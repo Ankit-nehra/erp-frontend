@@ -1,0 +1,399 @@
+I am building a School ERP Admin Panel + Teacher Panel using React.js frontend, Node.js + Express backend and PostgreSQL database.
+
+Continue from the current development state. Follow the same coding style, folder structure, naming conventions, API patterns and approach we have been using.
+
+Current stack:
+- Frontend: React.js
+- Styling: Tailwind CSS (No Bootstrap)
+- Backend: Node.js + Express
+- Database: PostgreSQL (Supabase connection)
+- Database access pattern:
+
+Example model:
+
+import { getPool } from "../../config/postgressSupabaseDb.js";
+
+export const functionName = async () => {
+
+    const pool = getPool();
+
+    const result = await pool.query(
+        `
+        SQL QUERY
+        `
+    );
+
+    return result.rows;
+
+};
+
+
+Backend pattern:
+- Separate model files
+- Separate controller files
+- Separate route files
+- Controller handles validation, status codes and errors
+- PostgreSQL duplicate error handled using code "23505"
+- Frontend consumes APIs using axios
+- Frontend pages are single React files with Tailwind CSS
+- No edit option unless specifically required
+- Admin pages generally have:
+    - Add form
+    - List table
+    - Delete button
+    - API integration
+
+
+==================================================
+
+DATABASE MODULES COMPLETED
+==================================================
+
+
+1. School Sessions
+
+Table:
+
+CREATE TABLE "schoolSessions" (
+    id SERIAL PRIMARY KEY,
+    session_name VARCHAR(20) UNIQUE NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    is_active BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+Features completed:
+- Add Session
+- View Sessions
+- Delete Session
+
+Validation:
+Session format must be:
+2025-2026
+
+Frontend:
+SessionManagement.jsx
+
+
+API:
+
+GET    /api/admin/sessions
+POST   /api/admin/sessions
+DELETE /api/admin/sessions/:id
+
+
+
+==================================================
+
+
+2. Classes
+
+
+Table:
+
+CREATE TABLE classes (
+    id SERIAL PRIMARY KEY,
+    class_name VARCHAR(50) UNIQUE NOT NULL
+);
+
+
+Features:
+- Add Class
+- View Class
+- Delete Class
+
+
+Frontend:
+Classes.jsx
+
+
+API:
+
+GET    /api/admin/classes
+POST   /api/admin/classes
+DELETE /api/admin/classes/:id
+
+
+
+==================================================
+
+
+3. Sections
+
+
+Table:
+
+CREATE TABLE sections (
+    id SERIAL PRIMARY KEY,
+    section_name VARCHAR(50) UNIQUE NOT NULL
+);
+
+
+Features:
+- Add Section
+- View Section
+- Delete Section
+
+
+Frontend:
+SectionManagement.jsx
+
+
+API:
+
+GET    /api/admin/sections
+POST   /api/admin/sections
+DELETE /api/admin/sections/:id
+
+
+
+==================================================
+
+
+4. Subjects
+
+
+Table:
+
+CREATE TABLE subjects (
+    id SERIAL PRIMARY KEY,
+    subject_name VARCHAR(100) NOT NULL,
+    subject_code VARCHAR(30) UNIQUE
+);
+
+
+Features:
+- Add Subject
+- View Subject
+- Delete Subject
+
+
+Frontend:
+Subjects.jsx
+
+
+API:
+
+GET    /api/admin/subjects
+POST   /api/admin/subjects
+DELETE /api/admin/subjects/:id
+
+
+
+==================================================
+
+
+5. Teachers
+
+
+Teacher table:
+
+"teachersLogin"
+
+
+Existing model:
+
+findTeacherByNumber(teacherNumber)
+
+
+Added functionality:
+
+Get all teachers for dropdown.
+
+API:
+
+GET /api/teacher/teachers
+
+
+Response:
+
+{
+ teachers:[
+   {
+    teacher_number,
+    teacher_name
+   }
+ ]
+}
+
+
+==================================================
+
+
+6. Teacher Assigned Class
+
+
+Main mapping table:
+
+
+CREATE TABLE "teacherAsignedClass" (
+
+ id SERIAL PRIMARY KEY,
+
+ teacher_number VARCHAR(30),
+
+ class_id INTEGER,
+
+ section_id INTEGER,
+
+ subject_id INTEGER,
+
+ session_id INTEGER,
+
+ FOREIGN KEY (teacher_number)
+ REFERENCES "teachersLogin"(teacher_number),
+
+ FOREIGN KEY (class_id)
+ REFERENCES "classes"(id),
+
+ FOREIGN KEY (section_id)
+ REFERENCES "sections"(id),
+
+ FOREIGN KEY (subject_id)
+ REFERENCES "subjects"(id),
+
+ FOREIGN KEY (session_id)
+ REFERENCES "schoolSessions"(id)
+
+);
+
+
+
+Purpose:
+
+Teacher ko class + section + subject + session assign karna.
+
+
+Completed:
+
+Backend:
+- Model
+- Controller
+- Routes
+
+
+API:
+
+
+GET
+/api/admin/teacher-assigned-class
+
+
+POST
+/api/admin/teacher-assigned-class
+
+
+DELETE
+/api/admin/teacher-assigned-class/:id
+
+
+
+POST Body:
+
+{
+ teacher_number:"T001",
+ class_id:1,
+ section_id:2,
+ subject_id:3,
+ session_id:4
+}
+
+
+
+Frontend:
+
+TeacherAssignedClass.jsx
+
+
+Features:
+- Teacher dropdown from API
+- Class dropdown
+- Section dropdown
+- Subject dropdown
+- Session dropdown
+- Assign button
+- Assignment list
+- Delete assignment
+
+
+
+==================================================
+
+IMPORTANT PROJECT RULES TO FOLLOW
+==================================================
+
+
+1. Do not ask me to rewrite existing code style.
+2. Continue with the same folder structure.
+3. Provide complete files when creating new modules.
+4. Frontend should be:
+   - Single React file
+   - Tailwind CSS
+   - Clean professional UI
+   - Axios integration
+5. Backend should follow:
+   - Model
+   - Controller
+   - Route pattern
+6. Use PostgreSQL queries with getPool().
+7. Use meaningful API responses:
+
+Example:
+
+return res.status(200).json({
+    message:"Data fetched successfully",
+    data
+});
+
+
+==================================================
+
+NEXT DEVELOPMENT DIRECTION
+==================================================
+
+
+Continue building School ERP.
+
+Expected upcoming modules:
+
+1. Class Subject Mapping
+   - Which subject belongs to which class.
+
+Example:
+
+Class 10:
+    Maths
+    Science
+    English
+
+
+2. Teacher Dashboard
+
+Teacher should see:
+- Assigned classes
+- Assigned subjects
+- Students
+
+
+3. Student Management
+
+Student assignment:
+- Session
+- Class
+- Section
+
+
+4. Attendance System
+
+5. Marks / Examination System
+
+6. Timetable System
+
+
+Continue from the last completed module:
+"Teacher Assigned Class"
+
+and maintain the same approach.

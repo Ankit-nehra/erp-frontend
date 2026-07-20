@@ -1,0 +1,309 @@
+I am building a School ERP system.
+
+Tech stack:
+- Frontend: React + Tailwind CSS
+- Backend: Node.js + Express
+- Database: PostgreSQL (Supabase)
+
+Current module:
+Admin Panel → Student Admission Management
+
+
+DATABASE STRUCTURE:
+
+1) student_profiles
+
+Columns:
+
+id
+admission_number (FK studentsLogin.admission_number)
+student_name
+roll_number
+class_name
+section
+session
+profile_photo
+created_at
+gender
+date_of_birth
+blood_group
+father_name
+father_mobile
+father_occupation
+mother_name
+mother_mobile
+mother_occupation
+email
+address
+city
+state
+pincode
+aadhar_number
+transport
+hostel
+
+
+2) studentsLogin
+
+id
+admission_number
+password
+
+
+3) classes
+
+id
+class_name
+
+
+4) sections
+
+id
+section_name
+
+
+
+BACKEND ALREADY IMPLEMENTED:
+
+student.model.js:
+
+Implemented:
+
+- getActiveSession()
+- getClasses()
+- getSections()
+- createStudentLogin()
+- createStudentProfile()
+- getAllStudents()
+- getStudentById()
+- updateStudent()
+- deleteStudent()
+
+
+Controller implemented:
+
+- fetchClasses
+- fetchSections
+- addStudent
+- fetchStudents
+- fetchStudentDetail
+- editStudent
+- removeStudent
+
+
+Routes implemented:
+
+GET    /admin/students/classes
+
+GET    /admin/students/sections
+
+POST   /admin/students
+
+GET    /admin/students
+
+GET    /admin/students/:id
+
+PUT    /admin/students/:id
+
+DELETE /admin/students/:id
+
+
+
+FRONTEND CURRENT STATUS:
+
+Single React file:
+
+StudentAdmission.jsx
+
+
+Implemented:
+
+PHASE 1:
+- Student admission form structure
+- Form state
+- Input fields
+- Class and Section fetching
+
+
+PHASE 2:
+- Admission POST API integrated
+- Student create functionality working
+
+
+PHASE 3:
+- Student listing table added
+- getAllStudents API integrated
+- Table showing:
+
+Photo
+Admission Number
+Student Name
+Roll Number
+Class
+Section
+Session
+Action
+
+
+PHASE 4:
+- Action column added
+- View/Edit/Delete buttons added
+- Search functionality added
+
+
+PHASE 5:
+Implemented:
+
+View button functionality.
+
+On clicking View:
+- Student detail modal opens
+- Complete student profile shown:
+
+Student information
+Father details
+Mother details
+Contact details
+Facilities
+
+
+PHASE 6:
+Implemented:
+
+Edit student functionality.
+
+Flow:
+
+Click Edit button →
+student data fills automatically in admission form →
+
+Button changes:
+
+Add Student
+
+to:
+
+Update Student
+
+
+PUT API integrated:
+
+/admin/students/:id
+
+
+After update:
+- Form reset
+- Student list refresh
+
+
+
+PHASE 7:
+Implemented:
+
+Delete functionality.
+
+Flow:
+
+Click Delete button →
+
+Confirmation popup opens →
+
+Confirm Delete →
+
+DELETE API call:
+
+/admin/students/:id
+
+
+After delete:
+- Student removed from database
+- Table refreshes
+
+
+CURRENT STATUS:
+
+Complete CRUD working:
+
+✅ Create Student
+✅ Get All Students
+✅ Get Single Student View Modal
+✅ Update Student
+✅ Delete Student
+
+
+NEXT WORK:
+
+PHASE 8: UI Enhancement
+
+We will improve only frontend UI.
+
+Tasks:
+
+1) Add dashboard statistics cards above table:
+
+Example:
+
+Total Students
+Male Students
+Female Students
+Current Session
+
+
+2) Improve search:
+
+Search by:
+
+- Student name
+- Admission number
+- Roll number
+- Father mobile
+- Class
+- Section
+
+
+3) Add pagination:
+
+Example:
+
+Showing 1-20 of 500 students
+
+Previous
+1 2 3 4
+Next
+
+
+4) Improve notifications:
+
+Replace simple green/red boxes with toast notifications.
+
+
+5) Improve table columns:
+
+Add:
+
+Gender
+Father Mobile
+Transport
+Hostel
+
+
+6) Improve mobile responsive student cards.
+
+
+IMPORTANT:
+
+Continue from Phase 8 only.
+
+Do not rewrite the complete file.
+
+Send code phase-wise.
+
+Each phase should contain exact placement instructions:
+
+Example:
+- "Add this state near existing states"
+- "Replace this existing block"
+- "Paste this before return closing"
+
+
+Maintain single file architecture.
