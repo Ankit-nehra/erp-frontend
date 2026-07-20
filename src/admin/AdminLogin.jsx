@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../utils/axiosInstance";
-import bgImage from "../assets/images/loginPageBackgroundImage.png";
+import bgImage from "../assets/images/loginpageBackgroundImage.png";
 import { FaHome } from "react-icons/fa";
 
 function AdminLogin() {
