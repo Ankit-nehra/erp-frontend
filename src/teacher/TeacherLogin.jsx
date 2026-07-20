@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../utils/axiosInstance";
 import { FaHome } from "react-icons/fa";
-import bgImage from "../assets/images/loginpageBackgroundImage.png";
+import bgImage from "../assets/images/loginPageBackgroundImage.png";
 
 function TeacherLogin() {
   const [teacherId, setTeacherId] = useState("");
