@@ -1,0 +1,358 @@
+School ERP Project Resume Prompt
+
+Copy this prompt and use it whenever you want to continue this project from exactly this point.
+
+Project Overview
+
+I am building a complete School ERP System using the following stack:
+
+Frontend
+React.js (Vite)
+Tailwind CSS
+Axios
+React Router
+React Icons
+Backend
+Node.js
+Express.js
+Databases
+PostgreSQL (Supabase) → Main relational database
+MongoDB → Gallery, notices, achievements etc.
+
+Authentication is JWT based.
+
+There are four portals:
+
+Admin
+Teacher
+Student
+Principal
+
+Project structure follows MVC.
+
+Database
+
+We are using PostgreSQL.
+
+Important tables include:
+
+student_profiles
+teacher_profiles
+attendance
+attendance_detail
+teacherAsignedClass
+classes
+sections
+sessions
+subjects
+
+Attendance uses PostgreSQL ENUM.
+
+attendance_status
+
+Present
+Absent
+Leave
+
+attendance_detail.attendance_status uses this enum.
+
+Teacher Attendance Module
+
+Completed.
+
+Teacher can
+
+Login
+View assigned classes
+Select
+
+Class
+
+↓
+
+Section
+
+↓
+
+Subject
+
+↓
+
+Date
+
+↓
+
+Period
+
+↓
+
+Load Students
+
+Teacher assignment is verified.
+
+Attendance cannot be submitted twice.
+
+Duplicate attendance returns proper message.
+
+Attendance can also be deleted.
+
+Buttons show loading state.
+
+UI is responsive.
+
+Important Database Change
+
+student_profiles DOES NOT store
+
+session_id
+
+class_id
+
+section_id
+
+Instead it stores
+
+session
+
+class_name
+
+section
+
+which are TEXT values.
+
+Therefore students are fetched using JOIN.
+
+Example:
+
+student_profiles.class_name
+
+=
+
+classes.class_name
+
+student_profiles.section
+
+=
+
+sections.section_name
+
+Current getStudents query works correctly.
+
+Student Attendance Module
+
+Backend has already been created.
+
+Routes:
+
+GET
+
+/api/student/attendance
+
+Returns
+
+Summary
+
+Monthly attendance
+
+GET
+
+/api/student/attendance/daily
+
+Returns complete daily attendance.
+
+Summary response:
+
+{
+  "summary": {
+    "overall": 93,
+    "present": 180,
+    "absent": 10,
+    "leave": 5
+  },
+  "monthly": [
+    {
+      "month":"January",
+      "present":22,
+      "absent":1,
+      "leave":0,
+      "percentage":95
+    }
+  ]
+}
+
+Daily response:
+
+{
+"success":true,
+"data":[
+{
+"id":1,
+"attendance_date":"2026-07-15",
+"attendance_status":"Present",
+"subject_name":"Mathematics",
+"teacher_name":"Rahul Sharma",
+"period_number":2,
+"created_at":"2026-07-15T09:20:00",
+"class_name":"10",
+"section_name":"A"
+}
+]
+}
+Attendance UI
+
+The attendance page has been redesigned.
+
+Features include
+
+Dynamic Summary Cards
+Overall Attendance Percentage
+Progress Bar
+Monthly Attendance Table
+Mobile Responsive Cards
+Refresh Button
+Loading Skeleton
+Attendance Policy
+Click Month → Opens Daily Attendance Drawer
+
+Drawer displays
+
+Date
+Subject
+Teacher
+Period
+Attendance Status
+Time
+Class
+Section
+
+Responsive design.
+
+Coding Style
+
+Always follow my formatting style.
+
+Rules:
+
+Full code only.
+Never omit code.
+Never write
+
+// remaining code
+
+or
+
+// same as above
+
+Always return complete files.
+Proper spacing.
+Professional comments.
+MVC architecture.
+ES Modules.
+Async/Await.
+Clean code.
+Existing Folder Structure
+
+server/
+
+controllers/
+
+models/
+
+routes/
+
+middleware/
+
+config/
+
+client/
+
+src/
+
+pages/
+
+components/
+
+layouts/
+
+utils/
+
+Authentication
+
+Teacher
+
+req.user.teacherNumber
+
+Student
+
+req.user.admissionNumber
+
+JWT middleware already exists.
+
+Current Progress
+
+Completed
+
+Admin Authentication
+
+Teacher Authentication
+
+Student Authentication
+
+Principal Authentication
+
+Teacher Profile
+
+Student Profile
+
+Principal Profile
+
+Teacher Attendance Upload
+
+Attendance Delete
+
+Attendance Duplicate Validation
+
+Student Attendance Summary API
+
+Student Monthly Attendance API
+
+Student Daily Attendance API
+
+Student Attendance UI
+
+Responsive Attendance UI
+
+Next Development Priority
+
+Continue building the ERP professionally.
+
+Always implement production-level features.
+
+Preferred order:
+
+Student Marks Module
+Student Homework Module
+Teacher Homework Upload
+Teacher Marks Upload
+Timetable
+Fee Module
+Leave Management
+Notifications
+Principal Dashboard
+Reports
+Analytics
+Charts
+Export PDF/Excel
+Role-based dashboards
+Response Preference
+
+Whenever I ask for code:
+
+Give complete code.
+Do not shorten files.
+If file is too large, split into multiple parts.
+Ensure every part combines into one complete working file.
+Do not change existing project structure unless necessary.
+Keep UI modern, responsive, and production-ready with Tailwind CSS.
+
+Continue from this exact project state without asking to recreate previously completed modules.

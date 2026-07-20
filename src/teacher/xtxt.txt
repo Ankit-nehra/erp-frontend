@@ -1,0 +1,5574 @@
+main apna project , react , express , postgresssql (supabase) with pg connectivity se bna rha hai 
+
+
+
+my database table structure :- 
+
+1) sessions
+
+
+
+| Column       | Type       | Key | Description    |
+
+
+
+| ------------ | ---------- | --- | -------------- |
+
+
+
+| id           | bigint/int | PK  | Session ID     |
+
+
+
+| session_name | varchar    |  isunique   | 2026-27        | 
+
+
+
+| start_date   | date       |     | Session Start  |
+
+
+
+| end_date     | date       |     | Session End    |
+
+
+
+| is_active    | boolean    |     | Active Session |
+
+
+
+
+
+
+
+2) classes
+
+
+
+| Column     | Type       | Key |
+
+
+
+| ---------- | ---------- | --- |
+
+
+
+| id         | bigint/int | PK  |
+
+
+
+| class_name | varchar    |isunique     | 
+
+
+
+
+
+
+
+3)sections
+
+
+
+| Column       | Type       | Key |
+
+
+
+| ------------ | ---------- | --- |
+
+
+
+| id           | bigint/int | PK  |
+
+
+
+| section_name | varchar    |    isunique | 
+
+
+
+
+
+
+
+4)subjects
+
+
+
+| Column       | Type       | Key |
+
+
+
+| ------------ | ---------- | --- |
+
+
+
+| id           | bigint/int | PK  |
+
+
+
+| subject_name | varchar    |     |
+
+
+
+| subject_code | varchar    |  isuniquw and isnullable   | 
+
+
+
+
+
+
+
+5)teachersLogin
+
+
+
+| Column         | Type       | Key    |
+
+
+
+| -------------- | ---------- | ------ |
+
+
+
+| id             | bigint/int | PK     |
+
+
+
+| teacher_number | varchar    | UNIQUE |
+
+
+
+| password       | varchar    |        |
+
+
+
+| ...            |            |        |
+
+
+
+
+
+
+
+6)studentsLogin
+
+
+
+| Column           | Type       | Key    |
+
+
+
+| ---------------- | ---------- | ------ |
+
+
+
+| id               | bigint/int | PK     |
+
+
+
+| admission_number | varchar    | UNIQUE |
+
+
+
+| password         | varchar    |        |
+
+
+
+| ...              |            |        |
+
+
+
+
+
+
+
+7)Student_Profiles
+
+
+
+| Column            | Type        | Key                                         |
+| ----------------- | ----------- | ------------------------------------------- |
+| id                | bigint/int  | PK                                          |
+| admission_number  | varchar     | FK → studentsLogin.admission_number, UNIQUE |
+| student_name      | varchar     |                                             |
+| roll_number       | int         |                                             |
+| class_name        | bigint/int  | FK → classes.class_name                     |
+| section           | bigint/int  | FK → sections.section_name                  |
+| session           | varchar     | FK → sessions.section_name                  |
+| profile_photo     | text        |                                             |
+| created_at        | timestamp   |                                             |
+| gender            | varchar     |                                             |
+| date_of_birth     | date        |                                             |
+| blood_group       | varchar     |                                             |
+| father_name       | varchar     |                                             |
+| father_mobile     | varchar     |                                             |
+| father_occupation | varchar     |                                             |
+| mother_name       | varchar     |                                             |
+| mother_mobile     | varchar     |                                             |
+| mother_occupation | varchar     |                                             |
+| email             | varchar     |                                             |
+| address           | text        |                                             |
+| city              | varchar     |                                             |
+| state             | varchar     |                                             |
+| pincode           | varchar/int |                                             |
+| aadhar_number     | varchar     | UNIQUE (Recommended)                        |
+| transport         | boolean     |                                             |
+| hostel            | boolean     |                                             |
+
+
+
+
+
+
+
+
+8)teacher_profiles
+
+
+
+| Column           | Type       | Key                                 |
+
+
+
+| ---------------- | ---------- | ----------------------------------- |
+
+
+
+| id               | int        | PK                                  |
+
+
+
+| teacher_number   | varchar    | FK → teachersLogin.teacher_number,usique |
+
+
+
+| teacher_name     | varchar    |                                     |
+
+
+
+| deignation       | varchar    |                                     |
+
+
+
+| qualification    | varchar    | FK → classes.class_name             |
+
+
+
+| session          | varchar    | FK → sessions.section_name          |
+
+
+
+| profile_photo    | text       |                                     | 
+
+
+
+
+
+
+
+9)classSectionSubjectMapping
+
+
+
+| Column     | Type       | Key |
+
+
+
+| ---------- | ---------- | --- |
+
+
+
+| id         | bigint/int | PK  |
+
+
+
+| class_id   | bigint/int | FK ->classes.id |
+
+
+
+| section_id | bigint/int | FK  ->sections.id|
+
+
+
+| subject_id | bigint/int | FK  ->subjects.id|
+
+
+
+
+
+
+
+10)teacherAsignedClass
+
+
+
+| Column           | Type       | Key                                 |
+
+
+
+| ---------------- | ---------- | ----------------------------------- |
+
+
+
+| id               | int        | PK                                  |
+
+
+
+| teacher_number   | varchar    | FK → teachersLogin.teacher_number   |
+
+
+
+| class_id         | int        | fk-> classes.id                     |
+
+
+
+| section_id       | int        |  fk->sections.id                    |
+
+
+
+| subject_id       | int        | FK → subjects.id                    |
+
+
+
+| session_id       | int        | FK → sessions.id                    |
+
+
+
+
+
+
+
+11)attendance
+
+
+
+| Column          | Type       | Key |
+
+
+
+| --------------- | ---------- | --- |
+
+
+
+| id              | bigint/int | PK  |
+
+
+
+| session_id      | bigint/int | FK -> classes.id  |
+
+
+
+| class_id        | bigint/int | FK -> classes.id|
+
+
+
+| section_id      | bigint/int | FK  ->sections.id |
+
+
+
+| subject_id      | bigint/int | FK → subjects.id  |
+
+
+
+| teacher_number  | varchar    | FK ->teacher_profiles.teacher_number|
+
+
+
+| attendance_date | date       |     |
+
+
+
+| period_number   | int        |     |
+
+
+
+| created_at      | timestamp  |     |
+
+
+
+
+
+
+
+ 12)attendance_detail
+
+
+
+| Column           | Type         | Key                                 |
+
+
+
+| ---------------- | ------------ | ----------------------------------- |
+
+
+
+| id               | bigint/int   | PK                                  |
+
+
+
+| attendance_id    | bigint/int   | FK → attendance.id                  |
+
+
+
+| admission_number | varchar      | FK → student_profiles.admission_number |
+
+
+
+| status           | enum/varchar | Present/Absent/Leave                |
+
+
+
+| created_at       | timestamp    |                                     |
+
+
+
+
+
+
+
+
+
+server.js file :- import express from "express";
+
+import cors from "cors";
+
+import dotenv from "dotenv";
+
+import path from "path";
+
+//---------------------------- database -----------------------------------------
+
+import connectDB from "./config/mongoDb.js";
+
+import connectPostgressSupabaseDB from "./config/postgressSupabaseDb.js";
+
+//--------------------------------- admin ----------------------------------------
+
+import authRoutes from "./routes/admin/authRoutes.js";
+
+import galleryRoutes from "./routes/admin/galleryRoutes.js";
+
+import noticeRoutes from "./routes/admin/noticeRoutes.js";
+
+import achievementRoutes from "./routes/admin/achievementRoutes.js";
+
+import adminRoutes from "./routes/admin/adminRoutes.js"
+
+//------------------------------------- student --------------------------------
+
+import StudentLogin from "./routes/student/studentLogin.js";
+
+import studentProfileRoutes from "./routes/student/studentProfile.routes.js";
+
+import studentAttendanceRoutes from "./routes/student/attendance.routes.js";
+
+//--------------------------------------- teacher ---------------------------------
+
+import TeacherLogin from "./routes/teacher/teacherLogin.js";
+
+import teacherProfileRoutes from "./routes/teacher/teacherProfile.routes.js"
+
+import teacherAttendanceRoutes from "./routes/teacher/attendance.routes.js";
+
+//--------------------------------------- teacher ---------------------------------
+
+import PrincipalLogin from "./routes/principal/principalLogin.js";
+
+import principalProfileRoutes from "./routes/principal/principalProfile.routes.js";
+
+
+
+
+
+dotenv.config();
+
+connectDB();
+
+connectPostgressSupabaseDB();
+
+const app = express();
+
+
+
+// Middleware
+
+app.use(cors());
+
+app.use(express.json());
+
+
+
+
+
+
+
+//************************************************* Routes  *************************************
+
+
+
+//----------------------------------- authRoute (admin) ----------------------------
+
+app.use("/api/auth", authRoutes);
+
+
+
+// adminPageRoutes
+
+app.use("/api/gallery", galleryRoutes);
+
+app.use("/api/notices", noticeRoutes);
+
+app.use("/api/achievements", achievementRoutes);
+
+app.use("/api/admin/",adminRoutes);
+
+//------------------------------------- studentPageRoutes ---------------------------
+
+ app.use("/api/studentLogin",StudentLogin);
+
+
+
+app.use(
+
+    "/api/student",
+
+    studentProfileRoutes
+
+);
+
+
+
+app.use(
+
+    "/api/student",
+
+    studentAttendanceRoutes
+
+);
+
+
+
+//-------------------------------------------- teacherpageRoutes ----------------------------------
+
+ app.use("/api/teacherLogin",TeacherLogin);
+
+ app.use(
+
+    "/api/teacher",
+
+    teacherProfileRoutes
+
+);
+
+app.use(
+
+    "/api/teacher/attendance",
+
+    teacherAttendanceRoutes
+
+);
+
+
+
+//--------------------------------------------- principalPageRoutes ------------------------
+
+ app.use("/api/principalLogin",PrincipalLogin);
+
+  app.use(
+
+    "/api/principal",
+
+    principalProfileRoutes
+
+);
+
+
+
+
+
+// Default port fallback
+
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+ ----------------------------------- routes file :- --------------------------------------
+
+teacherLogin.js :- import express from "express";
+
+
+
+import {
+
+    teacherLogin,
+
+    fetchAllTeachers
+
+} from "../../controllers/teacher/teacherLogin.controller.js";
+
+
+
+
+
+const router = express.Router();
+
+
+
+
+
+
+
+router.post(
+
+    "/teacher",
+
+    teacherLogin
+
+);
+
+
+
+
+
+
+
+router.get(
+
+    "/teachers",
+
+    fetchAllTeachers
+
+);
+
+
+
+
+
+
+
+export default router;
+
+
+
+attendance.routes.js:- import express from "express";
+
+
+
+import {
+
+    getAttendanceOptions,
+
+    getAttendanceStudents,
+
+    createAttendance,
+
+    deleteAttendance
+
+} from "../../controllers/teacher/attendance.controller.js";
+
+
+
+
+
+import {
+
+    verifyTeacherToken
+
+} from "../../middleware/teacherAuthMiddleware.js";
+
+
+
+
+
+const router = express.Router();
+
+
+
+
+
+
+
+//----------------------------------------------------
+
+// Get teacher assigned class-section-subject
+
+//----------------------------------------------------
+
+
+
+router.get(
+
+    "/options",
+
+    verifyTeacherToken,
+
+    getAttendanceOptions
+
+);
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------
+
+// Get students for attendance
+
+//----------------------------------------------------
+
+
+
+router.get(
+
+    "/students",
+
+    verifyTeacherToken,
+
+    getAttendanceStudents
+
+);
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------
+
+// Submit attendance
+
+//----------------------------------------------------
+
+
+
+router.post(
+
+    "/",
+
+    verifyTeacherToken,
+
+    createAttendance
+
+);
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------
+
+// Delete attendance
+
+//----------------------------------------------------
+
+
+
+router.delete(
+
+    "/:attendanceId",
+
+    verifyTeacherToken,
+
+    deleteAttendance
+
+);
+
+
+
+
+
+
+
+export default router;
+
+
+
+teacherProfile.routes.js:-
+
+import express from "express";
+
+import { getTeacherProfile } from "../../controllers/teacher/teacherProfile.controller.js";
+
+import { verifyTeacherToken } from "../../middleware/teacherAuthMiddleware.js";
+
+
+
+
+
+const router = express.Router();
+
+
+
+
+
+router.get(
+
+    "/profile",
+
+    verifyTeacherToken,
+
+    getTeacherProfile
+
+);
+
+
+
+
+
+
+
+
+
+export default router;
+
+
+
+ab mai models and controllers bjeju ga
+
+--------------------------------------------------- models -----------------------------
+teacherLogin.model.js :-
+import { getPool } from "../../config/postgressSupabaseDb.js";
+
+
+export const findTeacherByNumber = async (teacherNumber) => {
+
+    const pool = getPool();
+
+
+    const result = await pool.query(
+        `
+        SELECT *
+        FROM "teachersLogin"
+        WHERE teacher_number = $1
+        `,
+        [teacherNumber]
+    );
+
+
+    return result.rows[0];
+
+};
+
+// Get All Teachers
+export const getAllTeachers = async () => {
+
+    const pool = getPool();
+
+
+    const result = await pool.query(
+        `
+        SELECT 
+            tac.teacher_number,
+            t.teacher_name
+        FROM "teachersLogin" tac
+         LEFT JOIN "teacher_profiles" t
+        ON tac.teacher_number = t.teacher_number
+        ORDER BY teacher_number ASC;
+        `
+    );
+
+
+    return result.rows;
+
+};
+
+teacherProfile.model.js:-
+import { getPool } from "../../config/postgressSupabaseDb.js";
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Find Teacher Profile
+|--------------------------------------------------------------------------
+*/
+
+export const findTeacherProfileByNumber = async (
+    teacherNumber
+) => {
+
+
+    const pool = getPool();
+
+
+    const result = await pool.query(
+        `
+        SELECT
+
+            id,
+            teacher_name,
+            teacher_number,
+            designation,
+            qualification,
+            profile_photo
+
+        FROM "teacher_profiles"
+
+        WHERE teacher_number = $1
+
+        LIMIT 1
+
+        `,
+        [
+            teacherNumber
+        ]
+    );
+
+
+    return result.rows[0];
+
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Get Teacher Dashboard Stats
+|--------------------------------------------------------------------------
+|
+| Returns:
+|
+| Total Students
+| Total Subjects
+| Today's Attendance
+|
+|--------------------------------------------------------------------------
+*/
+
+
+export const getTeacherDashboardStats = async (
+    teacherNumber
+)=>{
+
+
+    const pool = getPool();
+
+
+
+    const query = `
+
+
+    WITH teacher_assignment AS (
+
+        SELECT DISTINCT
+
+            class_id,
+            section_id,
+            subject_id,
+            session_id
+
+
+        FROM "teacherAsignedClass"
+
+
+        WHERE teacher_number = $1
+
+    )
+
+
+
+    SELECT
+
+
+
+    (
+
+        SELECT COUNT(*)
+
+        FROM "student_profiles" sp
+
+
+        JOIN classes c
+
+        ON c.class_name = sp.class_name
+
+
+
+        JOIN sections s
+
+        ON s.section_name = sp.section
+
+
+
+        WHERE EXISTS (
+
+            SELECT 1
+
+            FROM teacher_assignment ta
+
+
+            WHERE
+
+            ta.class_id = c.id
+
+            AND
+
+            ta.section_id = s.id
+
+
+        )
+
+    ) AS total_students,
+
+
+
+
+
+    (
+
+        SELECT COUNT(DISTINCT subject_id)
+
+        FROM teacher_assignment
+
+
+    ) AS total_subjects
+
+
+
+    `;
+
+
+
+    const result =
+    await pool.query(
+        query,
+        [
+            teacherNumber
+        ]
+    );
+
+
+
+    const row =
+    result.rows[0];
+
+
+
+    return {
+
+        total_students:
+        Number(row.total_students),
+
+
+        total_subjects:
+        Number(row.total_subjects),
+
+
+        today_attendance:
+        await getTodayAttendancePercentage(
+            teacherNumber
+        ),
+
+
+        pending_marks:3
+
+    };
+
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Today's Attendance Percentage
+|--------------------------------------------------------------------------
+*/
+
+
+export const getTodayAttendancePercentage = async (
+    teacherNumber
+)=>{
+
+
+    const pool=getPool();
+
+
+
+    const result =
+    await pool.query(
+
+        `
+
+        SELECT
+
+
+        ROUND(
+
+            (
+
+            COUNT(
+                CASE
+                WHEN ad.status='Present'
+                THEN 1
+                END
+
+            )::numeric
+
+
+            /
+
+            NULLIF(
+                COUNT(ad.id),
+                0
+            )
+
+
+            )
+
+            *
+
+            100
+
+        ,2)
+
+
+        AS percentage
+
+
+
+        FROM "attendance" a
+
+
+
+        JOIN "attendance_detail" ad
+
+        ON ad.attendance_id=a.id
+
+
+
+        WHERE
+
+
+        a.teacher_number=$1
+
+
+        AND
+
+
+        a.attendance_date=CURRENT_DATE
+
+
+        `,
+
+        [
+            teacherNumber
+        ]
+
+    );
+
+
+
+    return result.rows[0]?.percentage
+    ?
+    `${result.rows[0].percentage}%`
+    :
+    "0%";
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Get Assigned Classes
+|--------------------------------------------------------------------------
+*/
+
+
+export const getTeacherAssignedClasses =
+async(
+    teacherNumber
+)=>{
+
+
+    const pool=getPool();
+
+
+
+    const result =
+    await pool.query(
+
+        `
+
+        SELECT
+
+
+        c.class_name,
+
+        s.section_name,
+
+        sub.subject_name,
+
+        sub.subject_code
+
+
+
+        FROM "teacherAsignedClass" tac
+
+
+
+        JOIN classes c
+
+        ON c.id=tac.class_id
+
+
+
+        JOIN sections s
+
+        ON s.id=tac.section_id
+
+
+
+        JOIN subjects sub
+
+        ON sub.id=tac.subject_id
+
+
+
+        WHERE
+
+        tac.teacher_number=$1
+
+
+
+        ORDER BY
+
+        c.class_name,
+
+        s.section_name
+
+
+        `,
+
+        [
+            teacherNumber
+        ]
+
+    );
+
+
+
+    return result.rows;
+
+
+};
+
+attendance.model.js:-
+import { getPool } from "../../config/postgressSupabaseDb.js";
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Get Active Session
+|--------------------------------------------------------------------------
+*/
+
+const getActiveSession = async () => {
+
+    const pool = getPool();
+
+    const query = `
+        SELECT id, session_name
+        FROM "sessions"
+        WHERE is_active = true
+        LIMIT 1
+    `;
+
+
+    const { rows } = await pool.query(query);
+
+
+    return rows[0];
+
+};
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Get Teacher Assigned Classes
+|--------------------------------------------------------------------------
+*/
+
+const getTeacherAssignments = async (
+    teacherNumber,
+    sessionId
+)=>{
+
+
+    const pool = getPool();
+
+
+    const query = `
+
+        SELECT
+
+            tac.class_id,
+            c.class_name,
+
+            tac.section_id,
+            s.section_name,
+
+            tac.subject_id,
+            sub.subject_name,
+            sub.subject_code
+
+
+        FROM "teacherAsignedClass" tac
+
+
+        JOIN classes c
+            ON tac.class_id = c.id
+
+
+        JOIN sections s
+            ON tac.section_id = s.id
+
+
+        JOIN subjects sub
+            ON tac.subject_id = sub.id
+
+
+        WHERE
+
+            tac.teacher_number = $1
+
+            AND tac.session_id = $2
+
+
+        ORDER BY
+
+            c.class_name,
+            s.section_name;
+
+
+    `;
+
+
+
+    const {rows} = await pool.query(
+        query,
+        [
+            teacherNumber,
+            sessionId
+        ]
+    );
+
+
+    return rows;
+
+
+};
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Verify Teacher Assignment
+|--------------------------------------------------------------------------
+*/
+
+const verifyTeacherAssignment = async({
+
+teacherNumber,
+sessionId,
+classId,
+sectionId,
+subjectId
+
+})=>{
+
+
+    const pool=getPool();
+
+
+    const query=`
+
+        SELECT id
+
+        FROM "teacherAsignedClass"
+
+        WHERE
+
+        teacher_number=$1
+
+        AND session_id=$2
+
+        AND class_id=$3
+
+        AND section_id=$4
+
+        AND subject_id=$5
+
+
+        LIMIT 1;
+
+    `;
+
+
+
+    const {rows}=await pool.query(
+        query,
+        [
+            teacherNumber,
+            sessionId,
+            classId,
+            sectionId,
+            subjectId
+        ]
+    );
+
+
+    return rows.length>0;
+
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Get Students
+|--------------------------------------------------------------------------
+*/
+
+const getStudents = async({
+
+sessionName,
+classId,
+sectionId
+
+})=>{
+
+
+    const pool=getPool();
+
+
+
+    const query=`
+
+        SELECT
+
+            sp.admission_number,
+
+            sp.student_name,
+
+            sp.roll_number,
+
+            sp.profile_photo
+
+
+        FROM "student_profiles" sp
+
+
+
+        JOIN classes c
+
+        ON c.id=$2
+
+
+
+        JOIN sections s
+
+        ON s.id=$3
+
+
+
+        WHERE
+
+
+            sp.session=$1
+
+
+            AND sp.class_name=c.class_name
+
+
+            AND sp.section=s.section_name
+
+
+
+        ORDER BY
+
+            sp.roll_number ASC;
+
+
+    `;
+
+
+
+    const {rows}=await pool.query(
+        query,
+        [
+            sessionName,
+            classId,
+            sectionId
+        ]
+    );
+
+
+
+    return rows;
+
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Check Existing Attendance
+|--------------------------------------------------------------------------
+*/
+
+const getAttendance = async({
+
+sessionId,
+classId,
+sectionId,
+subjectId,
+attendanceDate,
+periodNumber
+
+})=>{
+
+
+    const pool=getPool();
+
+
+
+    const query=`
+
+        SELECT *
+
+        FROM "attendance"
+
+
+        WHERE
+
+        session_id=$1
+
+        AND class_id=$2
+
+        AND section_id=$3
+
+        AND subject_id=$4
+
+        AND attendance_date=$5
+
+        AND period_number=$6
+
+
+        LIMIT 1;
+
+
+    `;
+
+
+
+    const {rows}=await pool.query(
+        query,
+        [
+            sessionId,
+            classId,
+            sectionId,
+            subjectId,
+            attendanceDate,
+            periodNumber
+        ]
+    );
+
+
+    return rows[0];
+
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Attendance Details
+|--------------------------------------------------------------------------
+*/
+
+const getAttendanceDetails = async(attendanceId)=>{
+
+
+    const pool=getPool();
+
+
+
+    const query=`
+
+        SELECT
+
+        sp.admission_number,
+
+        sp.student_name,
+
+        sp.roll_number,
+
+        sp.profile_photo,
+
+        ad.status
+
+
+        FROM "attendance_detail" ad
+
+
+        JOIN student_profiles sp
+
+        ON sp.admission_number=
+        ad.admission_number
+
+
+        WHERE
+
+        ad.attendance_id=$1
+
+
+        ORDER BY
+
+        sp.roll_number;
+
+
+    `;
+
+
+
+    const {rows}=await pool.query(
+        query,
+        [
+            attendanceId
+        ]
+    );
+
+
+    return rows;
+
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Create Attendance Record
+|--------------------------------------------------------------------------
+*/
+
+const createAttendanceRecord = async(
+client,
+{
+sessionId,
+classId,
+sectionId,
+subjectId,
+teacherNumber,
+attendanceDate,
+periodNumber
+}
+)=>{
+
+
+const query=`
+
+INSERT INTO "attendance"
+
+(
+session_id,
+class_id,
+section_id,
+subject_id,
+teacher_number,
+attendance_date,
+period_number
+)
+
+
+VALUES
+
+($1,$2,$3,$4,$5,$6,$7)
+
+
+RETURNING *;
+
+
+`;
+
+
+
+const {rows}=await client.query(
+query,
+[
+sessionId,
+classId,
+sectionId,
+subjectId,
+teacherNumber,
+attendanceDate,
+periodNumber
+]
+);
+
+
+return rows[0];
+
+
+};
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Create Attendance Details
+|--------------------------------------------------------------------------
+*/
+
+const createAttendanceDetails=async(
+client,
+attendanceId,
+students
+)=>{
+
+
+const values=[];
+const placeholders=[];
+
+
+
+students.forEach((student,index)=>{
+
+
+const p=index*3;
+
+
+
+placeholders.push(
+`($${p+1},$${p+2},$${p+3})`
+);
+
+
+
+values.push(
+
+attendanceId,
+
+student.admission_number,
+
+student.status
+
+);
+
+
+});
+
+
+
+const query=`
+
+INSERT INTO "attendance_detail"
+
+(
+attendance_id,
+admission_number,
+status
+)
+
+VALUES
+
+${placeholders.join(",")}
+
+
+`;
+
+
+
+await client.query(
+query,
+values
+);
+
+
+};
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Delete Attendance
+|--------------------------------------------------------------------------
+*/
+
+const deleteAttendanceRecord=async(
+attendanceId,
+teacherNumber
+)=>{
+
+
+const pool=getPool();
+
+
+const query=`
+
+DELETE FROM "attendance"
+
+WHERE
+
+id=$1
+
+AND teacher_number=$2
+
+
+RETURNING id;
+
+
+`;
+
+
+
+const {rows}=await pool.query(
+query,
+[
+attendanceId,
+teacherNumber
+]
+);
+
+
+
+return rows[0];
+
+
+};
+
+
+
+
+
+
+
+
+
+export {
+
+getActiveSession,
+
+getTeacherAssignments,
+
+verifyTeacherAssignment,
+
+getStudents,
+
+getAttendance,
+
+getAttendanceDetails,
+
+createAttendanceRecord,
+
+createAttendanceDetails,
+
+deleteAttendanceRecord
+
+};
+
+------------------------------------------------- controllers -------------------------------
+teacherLogin.controller.js:-
+import jwt from "jsonwebtoken";
+import { findStudentByAdmissionNumber } from "../../models/student/studentLogin.model.js";
+
+
+export const studentLogin = async (req, res) => {
+
+    try {
+
+        const { admissionNumber, password } = req.body;
+
+
+        if (!admissionNumber || !password) {
+            return res.status(400).json({
+                message: "Admission Number and Password are required"
+            });
+        }
+
+
+        const student = await findStudentByAdmissionNumber(
+            admissionNumber
+        );
+
+
+        if (!student) {
+            return res.status(401).json({
+                message: "Student not found"
+            });
+        }
+
+
+        if (student.password !== password) {
+            return res.status(401).json({
+                message: "Invalid Password"
+            });
+        }
+
+
+        // JWT Token Generate
+
+        const token = jwt.sign(
+            {
+                id: student.id,
+                admissionNumber: student.admission_number,
+                role: "student"
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: process.env.JWT_EXPIRE
+            }
+        );
+
+
+        return res.status(200).json({
+
+            message: "Student Login Successful",
+
+            token,
+
+            student: {
+                id: student.id,
+                admissionNumber: student.admission_number
+            }
+
+        });
+
+
+    } catch (error) {
+
+        console.error(
+            "Student Login Error:",
+            error.message
+        );
+
+
+        return res.status(500).json({
+            message: "Internal Server Error"
+        });
+
+    }
+
+};
+
+teacherProfile.controller.js:-
+import {
+
+    findTeacherProfileByNumber,
+
+    getTeacherDashboardStats,
+
+    getTeacherAssignedClasses
+
+}
+from "../../models/teacher/teacherProfile.model.js";
+
+
+
+
+
+export const getTeacherProfile = async(
+    req,
+    res
+)=>{
+
+
+    try{
+
+
+        const teacherNumber =
+        req.user.teacherNumber;
+
+
+
+        if(!teacherNumber){
+
+
+            return res.status(400).json({
+
+                success:false,
+
+                message:
+                "Teacher number missing in token"
+
+            });
+
+
+        }
+
+
+
+
+
+        const profile =
+        await findTeacherProfileByNumber(
+            teacherNumber
+        );
+
+
+
+
+
+        if(!profile){
+
+
+            return res.status(404).json({
+
+                success:false,
+
+                message:
+                "Teacher profile not found"
+
+            });
+
+
+        }
+
+
+
+
+
+        const dashboard =
+        await getTeacherDashboardStats(
+            teacherNumber
+        );
+
+
+
+
+
+        const classes =
+        await getTeacherAssignedClasses(
+            teacherNumber
+        );
+
+
+
+
+
+
+
+        return res.status(200).json({
+
+
+            success:true,
+
+
+            profile,
+
+
+            dashboard,
+
+
+            classes
+
+
+
+        });
+
+
+
+
+
+    }
+    catch(error){
+
+
+
+        console.log(
+            "Teacher Profile Error:",
+            error
+        );
+
+
+
+        return res.status(500).json({
+
+            success:false,
+
+            message:
+            "Internal Server Error"
+
+        });
+
+
+
+    }
+
+
+
+};
+
+
+attandance.controller.js:-
+import {
+    getActiveSession
+} from "../../models/student/attendance.model.js";
+
+import {
+    getAttendanceSummary,
+    getMonthlyAttendance,
+    getDailyAttendance,
+    getMonthlyDetail,
+    getSubjectWiseAttendance
+} from "../../models/student/attendance.model.js";
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Student Attendance Dashboard
+|--------------------------------------------------------------------------
+|
+| Overall summary
+| Monthly chart
+| Subject wise
+|
+*/
+
+const getStudentAttendance = async(req,res)=>{
+
+
+try{
+
+console.log("USER DATA:", req.user);
+const admissionNumber =
+req.user.admissionNumber;
+
+
+
+if(!admissionNumber){
+
+return res.status(400).json({
+
+success:false,
+
+message:"Student admission number missing"
+
+});
+
+}
+
+
+
+
+
+const session =
+await getActiveSession();
+
+
+
+if(!session){
+
+return res.status(404).json({
+
+success:false,
+
+message:"Active session not found"
+
+});
+
+}
+
+
+
+
+
+const summary =
+await getAttendanceSummary({
+
+admissionNumber,
+
+sessionId:session.id
+
+});
+
+
+
+
+
+
+const monthly =
+await getMonthlyAttendance({
+
+admissionNumber,
+
+sessionId:session.id
+
+});
+
+
+
+
+
+
+
+const subjectWise =
+await getSubjectWiseAttendance({
+
+admissionNumber,
+
+sessionId:session.id
+
+});
+
+
+
+
+
+
+return res.status(200).json({
+
+success:true,
+
+
+data:{
+
+
+summary,
+
+
+monthly,
+
+
+subjectWise
+
+
+}
+
+
+
+});
+
+
+
+
+
+}
+catch(error){
+
+
+console.log(
+"Student attendance error:",
+error
+);
+
+
+
+return res.status(500).json({
+
+success:false,
+
+message:"Server error"
+
+});
+
+
+}
+
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Complete Attendance History
+|--------------------------------------------------------------------------
+|
+| Every period detail
+| date
+| subject
+| teacher
+| status
+|
+*/
+
+const getStudentAttendanceHistory = async(req,res)=>{
+
+
+try{
+
+    console.log(
+"========== HISTORY API =========="
+);
+
+
+
+console.log(
+"USER:",
+req.user
+);
+
+
+const admissionNumber =
+req.user.admissionNumber;
+
+
+
+const session =
+await getActiveSession();
+
+
+
+
+
+if(!session){
+
+
+return res.status(404).json({
+
+success:false,
+
+message:"Active session not found"
+
+});
+
+
+}
+
+
+
+
+
+
+const history =
+await getDailyAttendance({
+
+admissionNumber,
+
+sessionId:session.id
+
+});
+
+
+
+
+
+
+
+return res.status(200).json({
+
+success:true,
+
+data:history
+
+});
+
+
+
+
+
+}
+catch(error){
+
+
+console.log(
+"Attendance history error:",
+error
+);
+
+
+
+return res.status(500).json({
+
+success:false,
+
+message:"Server error"
+
+});
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Particular Month Attendance Detail
+|--------------------------------------------------------------------------
+|
+| Example:
+| January ki saari classes
+|
+*/
+const getStudentMonthlyDetail = async(req,res)=>{
+
+
+try{
+
+
+const admissionNumber =
+req.user.admissionNumber;
+
+
+
+const month = Number(req.params.month);
+
+
+
+console.log(
+"========== MONTH DETAIL API =========="
+);
+
+
+console.log(
+"USER:",
+req.user
+);
+
+
+console.log(
+"MONTH PARAM:",
+req.params.month
+);
+
+
+console.log(
+"CONVERTED MONTH:",
+month
+);
+
+
+
+if(!month || month < 1 || month > 12){
+
+
+return res.status(400).json({
+
+success:false,
+
+message:"Invalid month"
+
+});
+
+
+}
+
+
+
+
+
+const session =
+await getActiveSession();
+
+
+
+if(!session){
+
+
+return res.status(404).json({
+
+success:false,
+
+message:"Active session not found"
+
+});
+
+
+}
+
+
+
+
+
+const details =
+await getMonthlyDetail({
+
+admissionNumber,
+
+sessionId:session.id,
+
+month
+
+});
+
+
+
+
+
+console.log(
+"MONTH DETAIL RESPONSE:",
+details
+);
+
+
+
+
+
+return res.status(200).json({
+
+success:true,
+
+data:details
+
+});
+
+
+
+
+
+}
+catch(error){
+
+
+console.log(
+"Monthly attendance detail error:",
+error
+);
+
+
+
+return res.status(500).json({
+
+success:false,
+
+message:"Server error"
+
+});
+
+
+}
+
+
+};
+
+
+
+
+
+
+
+
+export {
+
+
+getStudentAttendance,
+
+getStudentAttendanceHistory,
+
+getStudentMonthlyDetail
+
+
+};
+
+
+--------------------- ab mai frontend ui send krta hu -----------------------------
+TeacherLogin.jsx:-
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { FaHome } from "react-icons/fa";
+import bgImage from "../assets/images/loginpageBackgroundImage.png";
+
+function TeacherLogin() {
+  const [teacherId, setTeacherId] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    setError("");
+    setLoading(true);
+
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3000/api/teacherLogin/teacher",
+        {
+          teacherId,
+          password,
+        }
+      );
+
+      localStorage.setItem("teacherToken", data.token);
+
+      navigate("/teacher");
+    } catch (err) {
+      setError(
+        err.response?.data?.message ||
+          "Invalid Teacher ID or Password"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div
+      className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-4"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-blue-950/40 to-slate-950/80" />
+
+      {/* Glow */}
+      <div className="absolute w-96 h-96 bg-blue-500 rounded-full blur-[150px] opacity-30" />
+
+      <form
+        onSubmit={handleLogin}
+        className="relative z-10 w-full max-w-md rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl p-8"
+      >
+        {/* Home Button */}
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          className="absolute top-5 left-5 flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-white text-sm font-medium hover:bg-white/20 hover:text-blue-300 transition"
+        >
+          <FaHome />
+          Home
+        </button>
+
+        {/* Logo */}
+        <div className="flex justify-center mb-6 mt-8">
+          <div className="bg-blue-600 p-4 rounded-2xl shadow-lg shadow-blue-500/40 text-4xl">
+            👨‍🏫
+          </div>
+        </div>
+
+        <h2 className="text-3xl font-bold text-center text-white tracking-wide">
+          Teacher Portal
+        </h2>
+
+        <p className="text-center text-gray-300 mt-2 mb-8">
+          Login with Teacher ID
+        </p>
+
+        {error && (
+          <div className="bg-red-500/20 border border-red-400/40 text-red-200 p-3 rounded-xl mb-5 text-sm text-center">
+            {error}
+          </div>
+        )}
+
+        {/* Teacher ID */}
+        <div className="mb-5">
+          <label className="text-gray-200 text-sm block mb-2">
+            Teacher ID
+          </label>
+
+          <input
+            type="text"
+            placeholder="Enter Teacher ID"
+            value={teacherId}
+            onChange={(e) => setTeacherId(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+
+        {/* Password */}
+        <div className="mb-7">
+          <label className="text-gray-200 text-sm block mb-2">
+            Password
+          </label>
+
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 pr-12 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-4 top-3 text-gray-300 hover:text-white"
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </button>
+          </div>
+        </div>
+
+        {/* Login Button */}
+        <button
+          disabled={loading}
+          className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold shadow-lg shadow-blue-500/30 hover:scale-[1.02] transition duration-300 disabled:opacity-60"
+        >
+          {loading ? "Signing in..." : "Login"}
+        </button>
+
+        <p className="text-center text-gray-400 text-xs mt-6">
+          © {new Date().getFullYear()} Teacher Portal
+        </p>
+      </form>
+    </div>
+  );
+}
+
+export default TeacherLogin;
+
+------------------------------ TeacherDashboard.jsx:-----------------
+
+
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { HiMenu } from "react-icons/hi";
+
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+//-------------------------- student context (yaha pr data store hoga student ka iss file me )------
+import { TeacherProvider } from "../context/TeacherContext";
+
+function TeacherDashboard() {
+
+  const [openSidebar, setOpenSidebar] = useState(false);
+
+
+  return (
+    <div className="min-h-screen bg-slate-100 flex">
+
+
+      {/* Desktop Sidebar */}
+      <div className="hidden md:block">
+        <Sidebar />
+      </div>
+
+
+
+      {/* Mobile Sidebar */}
+      {
+        openSidebar && (
+          <>
+            {/* Overlay */}
+            <div
+              onClick={() => setOpenSidebar(false)}
+              className="
+                fixed
+                inset-0
+                bg-black/40
+                z-40
+                md:hidden
+              "
+            />
+
+
+            {/* Drawer */}
+            <div
+              className="
+                fixed
+                top-0
+                left-0
+                z-50
+                md:hidden
+              "
+            >
+
+              <Sidebar
+                mobile
+                setOpenSidebar={setOpenSidebar}
+              />
+
+            </div>
+
+          </>
+        )
+      }
+
+
+
+
+      {/* Main Area */}
+      <div className="flex-1 flex flex-col">
+
+        <TeacherProvider>
+        {/* Navbar */}
+        <Navbar
+          setOpenSidebar={setOpenSidebar}
+        />
+        
+
+
+
+        {/* Pages */}
+        <main
+          className="
+            flex-1
+            p-5
+            md:p-8
+          "
+        >
+
+          <Outlet />
+
+        </main>
+        </TeacherProvider>
+
+      </div>
+
+
+    </div>
+  );
+}
+
+
+export default TeacherDashboard;
+
+----------------Sidebar.jsx--------------
+import { NavLink, useNavigate } from "react-router-dom";
+import {
+  HiX,
+  HiAcademicCap,
+  HiHome,
+  HiUserGroup,
+  HiClipboardCheck,
+  HiPencilAlt,
+  HiBookOpen,
+  HiSpeakerphone,
+  HiDocumentText,
+  HiCalendar,
+  HiLogout,
+} from "react-icons/hi";
+
+function Sidebar({ mobile = false, setOpenSidebar }) {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("teacherToken");
+    navigate("/teacher/login");
+  };
+
+  const menu = [
+    {
+      name: "Dashboard",
+      path: "/teacher",
+      icon: <HiHome size={22} />,
+    },
+    {
+      name: "Students",
+      path: "/teacher/students",
+      icon: <HiUserGroup size={22} />,
+    },
+    {
+      name: "Attendance",
+      path: "/teacher/attendance",
+      icon: <HiClipboardCheck size={22} />,
+    },
+    {
+      name: "Marks Upload",
+      path: "/teacher/marks",
+      icon: <HiPencilAlt size={22} />,
+    },
+    {
+      name: "Syllabus",
+      path: "/teacher/syllabus",
+      icon: <HiBookOpen size={22} />,
+    },
+    {
+      name: "Notices",
+      path: "/teacher/notices",
+      icon: <HiSpeakerphone size={22} />,
+    },
+    {
+      name: "Notes",
+      path: "/teacher/notes",
+      icon: <HiDocumentText size={22} />,
+    },
+    {
+      name: "Timetable",
+      path: "/teacher/timetable",
+      icon: <HiCalendar size={22} />,
+    },
+  ];
+
+  return (
+    <aside
+      className={`bg-gradient-to-b from-indigo-700 to-blue-900 text-white ${
+        mobile
+          ? "fixed top-0 left-0 w-72 h-screen"
+          : "w-72 h-screen sticky top-0"
+      } flex flex-col`}
+    >
+      {/* Logo Section */}
+      <div className="flex items-center justify-between p-6 border-b border-white/10 flex-shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+            <HiAcademicCap size={30} />
+          </div>
+
+          <div>
+            <h1 className="text-xl font-bold">Teacher ERP</h1>
+            <p className="text-xs text-indigo-100">Faculty Portal</p>
+          </div>
+        </div>
+
+        {mobile && (
+          <button
+            onClick={() => setOpenSidebar(false)}
+            className="md:hidden"
+          >
+            <HiX size={28} />
+          </button>
+        )}
+      </div>
+
+      {/* Scrollable Menu */}
+      <nav className="flex-1 p-4 space-y-2 overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-400 scrollbar-track-blue-900">
+        {menu.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            end={item.path === "/teacher"}
+            onClick={() => mobile && setOpenSidebar(false)}
+            className={({ isActive }) =>
+              `flex items-center gap-4 px-4 py-3 rounded-xl transition-all ${
+                isActive
+                  ? "bg-white text-indigo-700 font-semibold shadow"
+                  : "hover:bg-white/10"
+              }`
+            }
+          >
+            {item.icon}
+            <span>{item.name}</span>
+          </NavLink>
+        ))}
+      </nav>
+
+      {/* Logout */}
+      <div className="p-4 border-t border-white/10 flex-shrink-0">
+        <button
+          onClick={logout}
+          className="w-full flex items-center justify-center gap-3 bg-red-500 hover:bg-red-600 py-3 rounded-xl font-semibold transition"
+        >
+          <HiLogout size={20} />
+          Logout
+        </button>
+      </div>
+    </aside>
+  );
+}
+
+export default Sidebar;
+
+
+-------------- Navbar.jsx ---------------
+import { useTeacher } from "../../context/TeacherContext";
+
+import { useEffect, useState } from "react";
+import {
+  HiMenu,
+  HiBell,
+  HiCalendar,
+  HiClock,
+} from "react-icons/hi";
+
+function Navbar({ setOpenSidebar }) {
+
+  const {teacher}=useTeacher();
+
+  const [dateTime, setDateTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const currentDate = dateTime.toLocaleDateString("en-IN", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
+  const currentTime = dateTime.toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+
+  return (
+    <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b shadow-sm">
+      <div className="h-20 px-4 md:px-8 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setOpenSidebar(true)}
+            className="md:hidden p-2 rounded-lg hover:bg-slate-100"
+          >
+            <HiMenu size={28} />
+          </button>
+
+          <div>
+            <h1 className="text-2xl font-bold text-slate-800">
+              Teacher Dashboard
+            </h1>
+
+            <p className="hidden sm:block text-sm text-gray-500">
+              Manage your classes and academics 👋
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-2 text-gray-600">
+            <HiCalendar className="text-indigo-600" size={20} />
+
+            <span className="text-sm font-medium">
+              {currentDate}
+            </span>
+          </div>
+
+          <div className="hidden md:flex items-center gap-2 text-gray-600">
+            <HiClock className="text-blue-600" size={20} />
+
+            <span className="text-sm font-medium">
+              {currentTime}
+            </span>
+          </div>
+
+          <button className="relative p-2 rounded-xl hover:bg-slate-100">
+            <HiBell size={24} />
+
+            <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full" />
+          </button>
+
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:block text-right">
+              <p className="font-semibold text-slate-800">
+                {teacher?.teacher_name}
+              </p>
+
+              <p className="text-sm text-gray-500">
+                {teacher?.designation}
+              </p>
+            </div>
+
+            <div className="w-11 h-11 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow">
+              {teacher?.teacher_name?.charAt(0)}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="md:hidden px-4 pb-3 flex justify-between text-xs text-gray-500">
+        <span>{currentDate}</span>
+
+        <span>{currentTime}</span>
+      </div>
+    </header>
+  );
+}
+
+export default Navbar;
+
+-------------------------------------- pages---------
+TeacherContext.jsx:-
+import {
+    createContext,
+    useContext,
+    useEffect,
+    useState
+} from "react";
+
+import API from "../utils/axiosInstance";
+
+
+
+const TeacherContext = createContext();
+
+
+
+export const TeacherProvider = ({
+    children
+}) => {
+
+
+
+    const [teacher,setTeacher] = useState(null);
+
+
+    const [dashboard,setDashboard] = useState(null);
+
+
+    const [classes,setClasses] = useState([]);
+
+
+    const [loading,setLoading] = useState(true);
+
+
+
+
+
+    useEffect(()=>{
+
+
+        const fetchTeacherData = async()=>{
+
+
+            try{
+
+
+                const token =
+                localStorage.getItem(
+                    "teacherToken"
+                );
+
+
+
+                if(!token){
+
+                    setLoading(false);
+
+                    return;
+
+                }
+
+
+
+
+
+                const response =
+                await API.get(
+                    "/teacher/profile"
+                );
+
+
+
+
+                console.log(
+                    "Teacher Dashboard Data:",
+                    response.data
+                );
+
+
+
+
+
+                setTeacher(
+                    response.data.profile
+                );
+
+
+
+                setDashboard(
+                    response.data.dashboard
+                );
+
+
+
+                setClasses(
+                    response.data.classes
+                );
+
+
+
+            }
+            catch(error){
+
+
+                console.log(
+                    "Teacher Context Error:",
+                    error
+                );
+
+
+            }
+            finally{
+
+
+                setLoading(false);
+
+
+            }
+
+
+        };
+
+
+
+        fetchTeacherData();
+
+
+    },[]);
+
+
+
+
+
+
+    return (
+
+
+        <TeacherContext.Provider
+
+            value={{
+
+                teacher,
+
+                dashboard,
+
+                classes,
+
+                loading
+
+            }}
+
+        >
+
+
+            {children}
+
+
+        </TeacherContext.Provider>
+
+
+    );
+
+
+};
+
+
+
+
+
+
+export const useTeacher = ()=>{
+
+
+    return useContext(
+        TeacherContext
+    );
+
+
+};
+
+TeacherHome.jsx:-
+import {
+
+    HiUserGroup,
+    HiClipboardCheck,
+    HiPencilAlt,
+    HiBookOpen,
+    HiCalendar,
+    HiSpeakerphone
+
+}
+from "react-icons/hi";
+
+import {
+    useTeacher
+}
+from "../../context/TeacherContext";
+
+
+
+function TeacherHome(){
+
+
+
+    const {
+
+        teacher,
+
+        dashboard,
+
+        classes
+
+    }
+    =
+    useTeacher();
+
+
+
+
+
+
+    if(!dashboard){
+
+
+        return (
+
+            <div>
+
+                Loading Dashboard...
+
+            </div>
+
+        );
+
+
+    }
+
+
+
+
+
+
+    const stats=[
+
+
+        {
+
+            title:"Total Students",
+
+            value:
+            dashboard.total_students,
+
+            icon:
+            <HiUserGroup size={28}/>,
+
+            color:
+            "bg-indigo-100 text-indigo-700"
+
+        },
+
+
+
+        {
+
+            title:"Today's Attendance",
+
+            value:
+            dashboard.today_attendance,
+
+            icon:
+            <HiClipboardCheck size={28}/>,
+
+            color:
+            "bg-green-100 text-green-700"
+
+        },
+
+
+
+        {
+
+            title:"Pending Marks",
+
+            value:
+            `${dashboard.pending_marks} Classes`,
+
+            icon:
+            <HiPencilAlt size={28}/>,
+
+            color:
+            "bg-yellow-100 text-yellow-700"
+
+        },
+
+
+
+        {
+
+            title:"Subjects",
+
+            value:
+            dashboard.total_subjects,
+
+            icon:
+            <HiBookOpen size={28}/>,
+
+            color:
+            "bg-blue-100 text-blue-700"
+
+        }
+
+
+    ];
+
+
+
+
+
+
+    const notices=[
+
+        "Submit monthly attendance before Friday",
+
+        "Unit test marks upload deadline tomorrow",
+
+        "Staff meeting at 3:30 PM"
+
+    ];
+
+
+
+
+
+
+
+
+return (
+
+
+
+<div className="space-y-8">
+
+
+
+
+
+{/* Welcome */}
+
+
+<div
+className="
+bg-gradient-to-r
+from-indigo-600
+to-blue-700
+rounded-3xl
+p-6
+md:p-8
+text-white
+shadow-lg
+"
+>
+
+
+<h1 className="text-3xl font-bold">
+
+Welcome,
+{teacher.teacher_name}
+👋
+
+</h1>
+
+
+
+<p className="mt-3 text-indigo-100">
+
+Manage your classes, attendance,
+marks and academic activities.
+
+</p>
+
+
+
+
+<div className="mt-5 flex flex-wrap gap-4 text-sm">
+
+
+<span
+className="
+bg-white/20
+px-4
+py-2
+rounded-xl
+"
+>
+
+{teacher.designation}
+
+</span>
+
+
+
+<span
+className="
+bg-white/20
+px-4
+py-2
+rounded-xl
+"
+>
+
+Classes:
+{classes.length}
+
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* Stats */}
+
+
+<div
+className="
+grid
+sm:grid-cols-2
+xl:grid-cols-4
+gap-6
+"
+>
+
+
+{
+
+stats.map(item=>(
+
+
+<div
+
+key={item.title}
+
+className="
+bg-white
+rounded-2xl
+border
+shadow-sm
+p-6
+hover:shadow-md
+transition
+"
+
+>
+
+
+<div
+
+className={`
+w-12
+h-12
+rounded-xl
+flex
+items-center
+justify-center
+${item.color}
+`}
+
+>
+
+{item.icon}
+
+</div>
+
+
+
+<p className="text-gray-500 mt-5">
+
+{item.title}
+
+</p>
+
+
+
+<h2 className="text-3xl font-bold mt-2">
+
+{item.value}
+
+</h2>
+
+
+
+</div>
+
+
+
+))
+
+}
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* Middle Section */}
+
+
+<div
+className="
+grid
+lg:grid-cols-2
+gap-6
+"
+>
+
+
+
+
+
+
+{/* Classes */}
+
+
+<div
+className="
+bg-white
+rounded-2xl
+border
+shadow-sm
+p-6
+"
+>
+
+
+<div
+className="
+flex
+items-center
+gap-3
+mb-6
+"
+>
+
+
+<HiCalendar
+className="text-indigo-600"
+size={25}
+/>
+
+
+<h2 className="text-xl font-bold">
+
+My Classes
+
+</h2>
+
+
+</div>
+
+
+
+
+
+<div className="space-y-4">
+
+
+{
+
+classes.map(
+(item,index)=>(
+
+
+<div
+
+key={index}
+
+className="
+flex
+justify-between
+items-center
+bg-slate-50
+rounded-xl
+p-4
+"
+
+>
+
+
+<div>
+
+
+<p className="font-semibold">
+
+Class {item.class_name}
+-
+{item.section_name}
+
+</p>
+
+
+
+<p className="text-sm text-gray-500">
+
+{item.subject_name}
+
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+)
+
+)
+
+
+}
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* Notices */}
+
+
+<div
+className="
+bg-white
+rounded-2xl
+border
+shadow-sm
+p-6
+"
+>
+
+
+<div
+className="
+flex
+items-center
+gap-3
+mb-6
+"
+>
+
+
+<HiSpeakerphone
+
+className="text-red-500"
+
+size={25}
+
+/>
+
+
+<h2 className="text-xl font-bold">
+
+Recent Notices
+
+</h2>
+
+
+
+</div>
+
+
+
+
+
+<div className="space-y-4">
+
+
+{
+
+notices.map(
+(notice,index)=>(
+
+
+<div
+
+key={index}
+
+className="
+flex
+gap-3
+bg-slate-50
+p-4
+rounded-xl
+"
+
+>
+
+
+<span>
+
+📢
+
+</span>
+
+
+<p className="text-gray-700 text-sm">
+
+{notice}
+
+</p>
+
+
+</div>
+
+
+)
+
+)
+
+
+}
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* Quick Actions */}
+
+
+<div
+className="
+bg-white
+rounded-2xl
+border
+shadow-sm
+p-6
+"
+>
+
+
+<h2 className="text-xl font-bold mb-5">
+
+Quick Actions
+
+</h2>
+
+
+
+<div
+className="
+grid
+grid-cols-2
+md:grid-cols-4
+gap-4
+"
+>
+
+
+<button
+className="
+bg-indigo-50
+text-indigo-700
+p-4
+rounded-xl
+font-semibold
+"
+>
+
+📅 Upload Attendance
+
+</button>
+
+
+
+<button
+className="
+bg-green-50
+text-green-700
+p-4
+rounded-xl
+font-semibold
+"
+>
+
+📝 Upload Marks
+
+</button>
+
+
+
+<button
+className="
+bg-blue-50
+text-blue-700
+p-4
+rounded-xl
+font-semibold
+"
+>
+
+📚 Add Notes
+
+</button>
+
+
+
+<button
+className="
+bg-purple-50
+text-purple-700
+p-4
+rounded-xl
+font-semibold
+"
+>
+
+📢 Create Notice
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+);
+
+
+}
+
+
+
+export default TeacherHome;
+
+
+AttendanceUpload.jsx:-
+import { useEffect, useState } from "react";
+
+import {
+  HiCalendar,
+  HiTrash,
+  HiRefresh,
+  HiCheckCircle,
+  HiExclamationCircle,
+} from "react-icons/hi";
+
+import API from "../../utils/axiosInstance";
+
+function AttendanceUpload() {
+  const [assignments, setAssignments] = useState([]);
+
+  const [selectedClass, setSelectedClass] = useState(null);
+
+  const [selectedSection, setSelectedSection] = useState(null);
+
+  const [selectedSubject, setSelectedSubject] = useState(null);
+
+  const [selectedAssignment, setSelectedAssignment] = useState(null);
+
+  const [students, setStudents] = useState([]);
+
+  const [date, setDate] = useState("");
+
+  const [period, setPeriod] = useState(1);
+
+  const [loadingStudents, setLoadingStudents] = useState(false);
+
+  const [submitting, setSubmitting] = useState(false);
+
+  const [deleting, setDeleting] = useState(false);
+
+  const [message, setMessage] = useState("");
+
+  const [messageType, setMessageType] = useState("");
+
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
+
+  const [attendanceId, setAttendanceId] = useState(null);
+
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
+  const fetchAssignments = async () => {
+    try {
+      const response = await API.get(
+        "/teacher/attendance/options"
+      );
+
+      setAssignments(response.data.data);
+    } catch (error) {
+      console.log(error);
+
+      setMessage("Unable to load attendance options");
+
+      setMessageType("error");
+    }
+  };
+
+  // unique classes
+
+  const classes = [
+    ...new Map(
+      assignments.map((item) => [
+        item.class_id,
+        item,
+      ])
+    ).values(),
+  ];
+
+  // sections according to class
+
+const sections = [
+  ...new Map(
+    assignments
+      .filter(
+        (item) =>
+          item.class_id === selectedClass?.class_id
+      )
+      .map((item) => [item.section_id, item])
+  ).values(),
+];
+
+  // subjects according to class + section
+
+const subjects = [
+  ...new Map(
+    assignments
+      .filter(
+        (item) =>
+          item.class_id === selectedClass?.class_id &&
+          item.section_id === selectedSection?.section_id
+      )
+      .map((item) => [item.subject_id, item])
+  ).values(),
+];
+
+  // Load Students
+
+  const loadStudents = async () => {
+    if (!selectedAssignment || !date) {
+      setMessage(
+        "Please select class, section, subject and date"
+      );
+
+      setMessageType("error");
+
+      return;
+    }
+
+    try {
+      setLoadingStudents(true);
+
+      setMessage("");
+
+      const response = await API.get(
+        "/teacher/attendance/students",
+        {
+          params: {
+            class_id:
+              selectedAssignment.class_id,
+
+            section_id:
+              selectedAssignment.section_id,
+
+            subject_id:
+              selectedAssignment.subject_id,
+
+            attendance_date: date,
+
+            period_number: period,
+          },
+        }
+      );
+
+      if (response.data.alreadySubmitted) {
+        setAlreadySubmitted(true);
+
+        setAttendanceId(
+          response.data.attendance_id
+        );
+
+        setMessage(
+          "Attendance already submitted. You can delete and submit again."
+        );
+
+        setMessageType("warning");
+      } else {
+        setAlreadySubmitted(false);
+
+        setAttendanceId(null);
+
+        setMessage(
+          "Students loaded successfully"
+        );
+
+        setMessageType("success");
+      }
+
+      setStudents(
+        response.data.students.map((student) => ({
+          ...student,
+        }))
+      );
+    } catch (error) {
+      console.log(error);
+
+      setMessage(
+        error.response?.data?.message ||
+          "Error loading students"
+      );
+
+      setMessageType("error");
+    } finally {
+      setLoadingStudents(false);
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+// Change Status
+
+const toggleStatus=(admission_number)=>{
+
+
+if(alreadySubmitted)
+return;
+
+
+
+setStudents(prev=>
+
+prev.map(student=>{
+
+
+
+if(
+student.admission_number === admission_number
+){
+
+
+
+let status;
+
+
+
+if(student.status==="Present")
+
+status="Absent";
+
+
+else if(student.status==="Absent")
+
+status="Leave";
+
+
+else
+
+status="Present";
+
+
+
+
+return {
+
+...student,
+
+status
+
+};
+
+
+}
+
+
+
+return student;
+
+
+
+})
+
+
+);
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+// Submit Attendance
+
+const submitAttendance = async()=>{
+
+
+if(students.length===0){
+
+
+setMessage(
+"Load students first"
+);
+
+setMessageType("error");
+
+
+return;
+
+
+}
+
+
+
+
+
+try{
+
+
+setSubmitting(true);
+
+setMessage("");
+
+
+
+
+await API.post(
+
+"/teacher/attendance",
+
+{
+
+
+class_id:
+selectedAssignment.class_id,
+
+
+section_id:
+selectedAssignment.section_id,
+
+
+subject_id:
+selectedAssignment.subject_id,
+
+
+attendance_date:
+date,
+
+
+period_number:
+period,
+
+
+
+students:
+
+
+
+students.map(student=>({
+
+
+admission_number:
+student.admission_number,
+
+
+status:
+student.status || "Present"
+
+
+
+}))
+
+
+
+}
+
+);
+
+
+
+
+
+setMessage(
+"Attendance submitted successfully"
+);
+
+
+setMessageType("success");
+
+
+
+setAlreadySubmitted(true);
+
+
+
+}
+catch(error){
+
+
+
+console.log(error);
+
+
+
+if(
+error.response?.status === 409
+){
+
+
+setMessage(
+"Attendance already submitted for this class and period"
+);
+
+
+}
+
+else{
+
+
+setMessage(
+
+error.response?.data?.message ||
+
+"Attendance submit failed"
+
+);
+
+
+}
+
+
+
+setMessageType("error");
+
+
+
+}
+finally{
+
+
+setSubmitting(false);
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+// Delete Attendance
+
+const deleteAttendance = async()=>{
+
+
+
+if(!attendanceId)
+return;
+
+
+
+const confirmDelete =
+window.confirm(
+"Are you sure you want to delete attendance?"
+);
+
+
+
+if(!confirmDelete)
+return;
+
+
+
+
+try{
+
+
+setDeleting(true);
+
+
+
+await API.delete(
+
+`/teacher/attendance/${attendanceId}`
+
+);
+
+
+
+
+setMessage(
+"Attendance deleted successfully"
+);
+
+
+setMessageType("success");
+
+
+
+
+setAlreadySubmitted(false);
+
+
+setAttendanceId(null);
+
+
+setStudents([]);
+
+
+
+}
+catch(error){
+
+
+
+console.log(error);
+
+
+
+setMessage(
+
+error.response?.data?.message ||
+
+"Delete failed"
+
+);
+
+
+setMessageType("error");
+
+
+
+}
+finally{
+
+
+setDeleting(false);
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+const presentCount =
+
+students.filter(
+s=>s.status==="Present"
+).length;
+
+
+
+
+
+const percentage =
+
+students.length
+
+?
+
+Math.round(
+presentCount / students.length * 100
+)
+
+:
+
+0;
+return(
+
+<div className="space-y-8">
+
+
+
+<h1 className="text-3xl font-bold">
+Upload Attendance
+</h1>
+
+
+
+
+
+{
+message &&
+
+<div
+className={`
+p-4 rounded-xl flex items-center gap-3
+
+${
+messageType==="success"
+
+?
+"bg-green-100 text-green-700"
+
+:
+
+messageType==="warning"
+
+?
+
+"bg-yellow-100 text-yellow-700"
+
+:
+
+"bg-red-100 text-red-700"
+
+}
+
+`}
+>
+
+
+{
+messageType==="success"
+
+?
+
+<HiCheckCircle size={24}/>
+
+:
+
+<HiExclamationCircle size={24}/>
+
+}
+
+
+{message}
+
+
+</div>
+
+}
+
+
+
+
+
+
+
+
+<div
+className="
+bg-white
+border
+rounded-2xl
+p-6
+grid
+md:grid-cols-5
+gap-5
+"
+>
+
+
+
+
+
+{/* CLASS */}
+
+<div>
+
+<label className="font-semibold">
+Class
+</label>
+
+
+<select
+
+className="
+mt-2
+w-full
+border
+rounded-xl
+p-3
+"
+
+
+onChange={(e)=>{
+
+
+const value =
+classes[e.target.value];
+
+
+setSelectedClass(value);
+
+setSelectedSection(null);
+
+setSelectedSubject(null);
+
+setSelectedAssignment(null);
+
+
+}}
+
+
+>
+
+
+<option>
+Select Class
+</option>
+
+
+{
+
+classes.map(
+(item,index)=>(
+
+
+<option
+
+key={index}
+
+value={index}
+
+>
+
+{item.class_name}
+
+</option>
+
+
+))
+
+}
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{/* SECTION */}
+
+<div>
+
+
+<label className="font-semibold">
+Section
+</label>
+
+
+<select
+
+disabled={!selectedClass}
+
+className="
+mt-2
+w-full
+border
+rounded-xl
+p-3
+"
+
+
+onChange={(e)=>{
+
+
+const value =
+sections[e.target.value];
+
+
+setSelectedSection(value);
+
+setSelectedSubject(null);
+
+setSelectedAssignment(null);
+
+
+}}
+
+
+>
+
+
+<option>
+Select Section
+</option>
+
+
+
+{
+
+sections.map(
+(item,index)=>(
+
+
+<option
+
+key={index}
+
+value={index}
+
+>
+
+{item.section_name}
+
+</option>
+
+
+))
+
+
+}
+
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* SUBJECT */}
+
+<div>
+
+
+<label className="font-semibold">
+Subject
+</label>
+
+
+<select
+
+disabled={!selectedSection}
+
+className="
+mt-2
+w-full
+border
+rounded-xl
+p-3
+"
+
+
+onChange={(e)=>{
+
+
+const value =
+subjects[e.target.value];
+
+
+setSelectedSubject(value);
+
+
+setSelectedAssignment(value);
+
+
+
+}}
+
+
+>
+
+
+
+<option>
+Select Subject
+</option>
+
+
+{
+
+subjects.map(
+(item,index)=>(
+
+
+<option
+
+key={index}
+
+value={index}
+
+>
+
+{item.subject_name}
+
+</option>
+
+
+))
+
+
+}
+
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* DATE */}
+
+<div>
+
+
+<label className="font-semibold">
+Date
+</label>
+
+
+<div className="relative">
+
+
+<HiCalendar
+
+className="
+absolute
+left-3
+top-4
+text-gray-500
+"
+
+/>
+
+
+
+<input
+
+type="date"
+
+value={date}
+
+onChange={
+e=>setDate(e.target.value)
+}
+
+
+className="
+mt-2
+w-full
+border
+rounded-xl
+p-3
+pl-10
+"
+
+/>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* PERIOD */}
+
+<div>
+
+
+<label className="font-semibold">
+Period
+</label>
+
+
+<select
+
+
+value={period}
+
+
+onChange={
+e=>setPeriod(e.target.value)
+}
+
+
+className="
+mt-2
+w-full
+border
+rounded-xl
+p-3
+"
+
+
+>
+
+
+{
+
+[1,2,3,4,5,6,7,8]
+
+.map(p=>(
+
+
+<option
+
+key={p}
+
+value={p}
+
+>
+
+{p}
+
+</option>
+
+
+))
+
+
+}
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* LOAD BUTTON */}
+
+
+<button
+
+
+onClick={loadStudents}
+
+
+disabled={loadingStudents}
+
+
+className="
+bg-indigo-700
+disabled:bg-gray-400
+text-white
+px-8
+py-3
+rounded-xl
+flex
+items-center
+gap-2
+"
+
+
+>
+
+
+{
+
+loadingStudents
+
+?
+
+<>
+
+<HiRefresh className="animate-spin"/>
+
+Loading Students...
+
+</>
+
+:
+
+"Load Students"
+
+}
+
+
+
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+{
+students.length > 0 &&
+
+
+<div
+
+className="
+bg-indigo-50
+rounded-xl
+p-5
+"
+
+>
+
+
+<p>
+
+Present:
+
+<b>
+{presentCount}/{students.length}
+</b>
+
+</p>
+
+
+<p>
+
+Attendance:
+
+<b>
+{percentage}%
+</b>
+
+</p>
+
+
+</div>
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+students.length > 0 &&
+
+
+<div
+
+className="
+bg-white
+border
+rounded-2xl
+overflow-hidden
+"
+
+>
+
+
+<table className="w-full">
+
+
+<thead
+
+className="
+bg-indigo-700
+text-white
+"
+
+>
+
+
+<tr>
+
+
+<th className="p-4">
+Roll
+</th>
+
+
+<th className="p-4">
+Student Name
+</th>
+
+
+<th className="p-4">
+Status
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody>
+
+
+{
+
+students.map(student=>(
+
+
+
+<tr
+
+key={
+student.admission_number
+}
+
+className="border-b"
+
+
+>
+
+
+
+<td className="p-4">
+
+{student.roll_number}
+
+</td>
+
+
+
+
+
+<td
+
+className="
+p-4
+font-semibold
+"
+
+>
+
+{student.student_name}
+
+</td>
+
+
+
+
+
+
+
+<td className="p-4">
+
+
+<button
+
+
+disabled={alreadySubmitted}
+
+
+onClick={()=>
+
+
+toggleStatus(
+student.admission_number
+)
+
+}
+
+
+className={`
+px-4
+py-2
+rounded-xl
+font-semibold
+
+
+${
+student.status==="Present"
+
+?
+
+"bg-green-100 text-green-700"
+
+:
+
+student.status==="Absent"
+
+?
+
+"bg-red-100 text-red-700"
+
+:
+
+"bg-yellow-100 text-yellow-700"
+
+}
+
+
+disabled:opacity-50
+
+`}
+
+
+>
+
+
+{student.status}
+
+
+</button>
+
+
+</td>
+
+
+
+
+
+
+</tr>
+
+
+
+))
+
+
+}
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+students.length > 0 &&
+
+<div className="flex gap-4">
+
+
+{
+
+!alreadySubmitted &&
+
+
+
+<button
+
+
+onClick={submitAttendance}
+
+
+disabled={submitting}
+
+
+className="
+flex-1
+bg-indigo-700
+disabled:bg-gray-400
+text-white
+py-4
+rounded-2xl
+font-bold
+"
+
+
+>
+
+
+
+{
+
+submitting
+
+?
+
+"Submitting..."
+
+:
+
+"Submit Attendance"
+
+}
+
+
+</button>
+
+
+}
+
+
+
+
+
+
+
+{
+
+alreadySubmitted &&
+
+
+<button
+
+
+onClick={deleteAttendance}
+
+
+disabled={deleting}
+
+
+className="
+flex-1
+bg-red-600
+disabled:bg-gray-400
+text-white
+py-4
+rounded-2xl
+font-bold
+flex
+justify-center
+items-center
+gap-2
+"
+
+
+>
+
+
+<HiTrash/>
+
+
+{
+
+deleting
+
+?
+
+"Deleting..."
+
+:
+
+"Delete Attendance"
+
+}
+
+
+
+</button>
+
+
+}
+
+
+
+</div>
+
+
+}
+
+
+
+
+
+
+</div>
+
+);
+
+
+}
+
+
+export default AttendanceUpload;
+

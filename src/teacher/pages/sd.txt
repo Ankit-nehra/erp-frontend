@@ -1,0 +1,324 @@
+मैं एक School Management System बना रहा हूँ जिसमें React frontend और Node.js + Express + PostgreSQL backend है।
+
+मेरे database में ये tables already मौजूद हैं:
+
+1) sessions
+- id
+- session_name
+- start_date
+- end_date
+- is_active
+
+2) classes
+- id
+- class_name
+
+3) sections
+- id
+- section_name
+
+4) subjects
+- id
+- subject_name
+- subject_code
+
+5) teachersLogin
+- id
+- teacher_number
+- password
+
+6) teacher_profiles
+- id
+- teacher_number
+- teacher_name
+- session
+
+7) student_profiles
+- admission_number
+- student_name
+- class_name
+- section
+- session
+
+8) teacherAsignedClass
+
+columns:
+
+- id
+- teacher_number
+- class_id
+- section_id
+- subject_id
+- session_id
+
+
+9) periods
+
+columns:
+
+- id
+- period_name
+
+Example:
+First
+Second
+Third
+Lunch
+
+
+10) timetable
+
+columns:
+
+- id
+- session_id
+- class_id
+- section_id
+- subject_id
+- teacher_number
+- day_of_week
+- period_id
+
+
+Timetable creation admin side already complete hai.
+
+Admin flow:
+
+Session select
+↓
+Class select
+↓
+Section select
+↓
+Assigned teachers show
+↓
+Teacher select
+↓
+Teacher ke assigned subject show
+↓
+Day select
+↓
+Period select
+↓
+Timetable create
+
+
+Ab mujhe next module banana hai:
+
+# 1. Teacher Portal Timetable
+
+Requirement:
+
+Jab teacher login kare:
+
+- teacher_number available hoga
+- us teacher ka weekly timetable show hona chahiye
+
+Example:
+
+Teacher:
+TCH006 - Amit Sharma
+
+
+Output:
+
+Monday:
+Period First
+Class 1
+Section A
+Subject Maths
+
+
+Period Third
+Class 10
+Section B
+Subject Science
+
+
+Tuesday:
+...
+
+
+Teacher ko sirf apna timetable dikhna chahiye.
+
+
+Backend banana hai:
+
+- teacher timetable model
+- controller
+- route
+- API
+
+
+API example:
+
+GET
+
+/api/teacher/timetable/:teacher_number
+
+
+Response:
+
+{
+ timetable:[
+ {
+ day_of_week:1,
+ period_name:"First",
+ class_name:"10",
+ section_name:"A",
+ subject_name:"Maths"
+ }
+ ]
+}
+
+
+
+# 2. Student Portal Timetable
+
+
+Requirement:
+
+Student login karega.
+
+Student ke profile se:
+
+- class_id
+- section_id
+- session_id
+
+milega.
+
+
+Student ko uski class ka complete weekly timetable show hona chahiye.
+
+
+Example:
+
+
+Class 10
+Section B
+
+
+Monday
+
+First Period
+Maths
+Teacher: Amit Sharma
+
+
+Second Period
+English
+Teacher: Rahul Sharma
+
+
+
+API:
+
+GET
+
+/api/student/timetable/:admission_number
+
+
+Backend:
+
+Student admission_number se:
+
+student_profiles
+        |
+        |
+class_id
+section_id
+session_id
+        |
+        |
+timetable table
+
+
+se data fetch kare.
+
+
+
+Response:
+
+{
+ timetable:[
+ {
+ day_of_week:1,
+ period_name:"First",
+ subject_name:"Maths",
+ teacher_name:"Amit Sharma"
+ }
+ ]
+}
+
+
+
+Frontend:
+
+React me responsive pages banana hai:
+
+
+Teacher:
+
+TeacherTimetable.jsx
+
+
+Student:
+
+StudentTimetable.jsx
+
+
+
+UI requirement:
+
+Mobile + desktop responsive
+
+
+Teacher page:
+
+Heading:
+"My Weekly Timetable"
+
+
+Table:
+
+Day
+Period
+Class
+Section
+Subject
+
+
+
+Student page:
+
+Heading:
+"My Class Timetable"
+
+
+Table:
+
+Day
+Period
+Subject
+Teacher
+
+
+
+Important:
+
+- Existing database structure change nahi karna.
+- teacher_name timetable table me store nahi karna.
+- JOIN ke through teacher_profiles se fetch karna.
+- Clean MVC structure follow karna.
+- Complete backend + frontend code dena.
+- Error handling add karna.
+- PostgreSQL queries use karna.
+
+
+Development order:
+
+1. Pehle Teacher timetable backend complete karo.
+2. Fir TeacherTimetable.jsx.
+3. Fir Student timetable backend.
+4. Fir StudentTimetable.jsx.
