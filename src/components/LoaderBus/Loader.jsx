@@ -1,4 +1,4 @@
-import "./loader.css"
+import "./Loader.css"
 import busImage from "../../assets/images/school-bus.jpg";
 
 export default function Loader() {
