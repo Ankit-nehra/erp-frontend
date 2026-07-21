@@ -2,7 +2,7 @@
   
 import axios from "../utils/axiosInstance";
 
-    const API="/api/admin/periods";
+    const API="/admin/periods";
 
 
     export default function Periods(){
