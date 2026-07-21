@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import axios from "../utils/axiosInstance";
-const API = "/api/admin/sections";
+const API = "/admin/sections";
 
 export default function SectionManagement() {
 
