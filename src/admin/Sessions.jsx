@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import axios from "../utils/axiosInstance";
-const API = "/api/admin/sessions";
+const API = "/admin/sessions";
 //import axios from "../utils/axiosInstance";
 
 export default function SessionManagement() {
