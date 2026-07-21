@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "../utils/axiosInstance";
 
 const API =
-"/api/admin/subjects";
+"/admin/subjects";
 
 
 export default function Subjects(){
