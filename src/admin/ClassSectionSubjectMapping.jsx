@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import axios from "../utils/axiosInstance";
-const BASE_URL = "/api";
+
 
 export default function ClassSectionSubjectMapping() {
 
@@ -44,11 +44,11 @@ export default function ClassSectionSubjectMapping() {
 
             ] = await Promise.all([
 
-                axios.get(`${BASE_URL}/admin/classes`),
+                axios.get("/admin/classes"),
 
-                axios.get(`${BASE_URL}/admin/sections`),
+                axios.get("/admin/sections"),
 
-                axios.get(`${BASE_URL}/admin/subjects`)
+                axios.get("/admin/subjects")
 
             ]);
 
@@ -82,7 +82,7 @@ export default function ClassSectionSubjectMapping() {
 
             const res = await axios.get(
 
-                `${BASE_URL}/admin/class-section-subject`
+                "/admin/class-section-subject"
 
             );
 
@@ -128,7 +128,7 @@ export default function ClassSectionSubjectMapping() {
 
             await axios.post(
 
-                `${BASE_URL}/admin/class-section-subject`,
+                "/admin/class-section-subject",
 
                 form
 
@@ -200,7 +200,7 @@ export default function ClassSectionSubjectMapping() {
 
             await axios.delete(
 
-                `${BASE_URL}/admin/class-section-subject/${id}`
+                `/admin/class-section-subject/${id}`
 
             );
 
