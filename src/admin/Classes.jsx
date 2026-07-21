@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import axios from "../utils/axiosInstance";
 const API =
-"/api/admin/classes";
+"/admin/classes";
 
 
 export default function Classes(){
