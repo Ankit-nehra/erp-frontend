@@ -310,7 +310,8 @@ Unlike many traditional school management systems, EduCore ERP combines a **dyna
 ---
 
 # 📸 Screenshots
-
+Website home page
+<img src="./src/assets/website.png" alt="EduCore ERP Banner" width="100%" />
 Teacher-Dashboard
 <img src="./src/assets/teacher-dash.png" alt="EduCore ERP Banner" width="100%" />
 Teacher see student list 
