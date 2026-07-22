@@ -4,7 +4,7 @@
 
 <!-- Replace this with your project banner -->
 
-<img src="../src/assets/banner.png" alt="EduCore ERP Banner" width="100%" />
+<img src="./src/assets/banner.png" alt="EduCore ERP Banner" width="100%" />
 
 <br>
 
