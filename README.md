@@ -1,222 +1,370 @@
-🎓 EduCore ERP
-Complete School Website & ERP Management System
+# 🎓 EduCore ERP
 
-A modern full-stack School Website + ERP Management System built using the MERN Stack with PostgreSQL (Supabase) for ERP data management.
+<div align="center">
 
-This project provides a complete digital solution for schools by combining a dynamic public website with a powerful ERP portal for Students, Teachers, Admins, and Principals.
+<!-- Replace this with your project banner -->
 
-📌 Features
-🌐 Dynamic School Website
+<img src="./assets/banner.png" alt="EduCore ERP Banner" width="100%" />
 
-The public website allows visitors to explore school information while administrators can manage content in real time.
+<br>
 
-Admin can:
+# 🏫 Complete School Website + ERP Management System
 
-Publish school notices
-Upload gallery images
-Post achievements
-Manage website content dynamically
-🏫 ERP Modules
+### A Modern Full-Stack School Management Platform built with MERN + PostgreSQL (Supabase)
 
-The ERP consists of four dedicated portals:
+<p align="center">
 
-👨‍🎓 Student Portal
-👩‍🏫 Teacher Portal
-👨‍💼 Admin Portal
-👨‍🎓 Principal Portal
-👩‍🏫 Teacher Portal
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
 
-Teachers can:
+![NodeJS](https://img.shields.io/badge/Node.js-22-339933?style=for-the-badge&logo=node.js)
 
-View their profile
-View weekly timetable
-Take attendance only for assigned classes
-Upload Test marks
-Upload Mid-Term marks
-Upload Final Exam marks
-Send notices to assigned classes
-View complete student profiles
-Track student attendance
-Monitor student academic performance
-Update syllabus progress as:
-✅ Completed
-🟡 In Progress
-🔴 Pending
+![Express](https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express)
 
-The syllabus progress is visible to both students and the principal.
+![MongoDB](https://img.shields.io/badge/MongoDB-Website-47A248?style=for-the-badge&logo=mongodb)
 
-👨‍🎓 Student Portal
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-ERP-336791?style=for-the-badge&logo=postgresql)
 
-Students can:
+![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=for-the-badge&logo=supabase)
 
-View complete profile
-View parent information
-View personal details
-Gender
-Blood Group
-Hostel
-Bus Information
-View attendance history
-View monthly attendance
-View overall attendance
-View timetable
-View teacher notices
-View uploaded marks
-Track academic performance
-Track syllabus progress
-👨‍💼 Admin Portal
+![Cloudinary](https://img.shields.io/badge/Cloudinary-Media-3448C5?style=for-the-badge&logo=cloudinary)
 
-The Admin has complete control over the ERP and website.
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-Website Management
-Publish Notices
-Upload Gallery Images
-Publish School Achievements
-Teacher Management
-Assign teachers to classes
-Assign subjects
-Manage teacher allocations
-Student Management
-Student Admission
-Edit Student
-View Student
-Delete Student
-Academic Management
-Upload class timetable
-Manage school academic information
-👨‍🎓 Principal Portal
+![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)
 
-The Principal can monitor the complete academic performance of the school.
+</p>
 
-Principal can:
+<p align="center">
 
-View all student profiles
-Monitor attendance
-View academic performance
-View marks
-Monitor syllabus completion
-Track overall school progress
-🛠 Tech Stack
-Frontend
-React.js
-Backend
-Express.js
-Node.js
-Databases
-MongoDB (Website Data)
-PostgreSQL (Supabase + pg) (ERP Data)
-File Storage
-Cloudinary
-File Upload
-Multer
-⚡ Key Highlights
-Dynamic School Website
-Role-Based Authentication
-Four Dedicated Dashboards
-Attendance Management
-Marks Management
-Timetable Management
-Notice Management
-Gallery Management
-Achievement Management
-Student Performance Tracking
-Syllabus Progress Tracking
-Cloud Image Storage
-Responsive User Interface
-📂 Project Architecture
-Website
-│
-├── Home
-├── About
-├── Gallery
-├── Notices
-├── Achievements
-└── Contact
+<a href="<LIVE_DEMO_URL>">
+<img src="https://img.shields.io/badge/🚀_Live_Demo-4285F4?style=for-the-badge">
+</a>
 
-ERP
-│
-├── Student
-├── Teacher
-├── Admin
-└── Principal
-🚀 Installation
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
+<a href="<GITHUB_REPOSITORY>">
+<img src="https://img.shields.io/badge/📂_Repository-181717?style=for-the-badge&logo=github">
+</a>
 
-Install dependencies
+<a href="<API_DOCS_URL>">
+<img src="https://img.shields.io/badge/API_Documentation-orange?style=for-the-badge">
+</a>
 
-npm install
+</p>
 
-Run the frontend
+---
 
-npm run dev
+### ⭐ If you like this project, don't forget to give it a Star!
 
-Run the backend
+</div>
 
-npm start
-🔐 Environment Variables
+---
 
-Create a .env file and configure the following variables:
+# 📖 Overview
 
-MONGODB_URI=
+**EduCore ERP** is a modern **School Website + Enterprise Resource Planning (ERP)** platform designed to digitize every major operation inside an educational institution.
 
-SUPABASE_URL=
+Unlike traditional school management software, EduCore ERP combines a **dynamic public-facing website** with a **secure role-based ERP system**, allowing administrators, teachers, students, and principals to collaborate through one integrated platform.
 
-SUPABASE_ANON_KEY=
+The project is designed with scalability, modularity, and security in mind, making it suitable for schools seeking a complete digital ecosystem.
 
-DATABASE_URL=
+---
 
-CLOUDINARY_CLOUD_NAME=
+# 🎯 Vision
 
-CLOUDINARY_API_KEY=
+Our goal is to eliminate paperwork and centralize school management by providing:
 
-CLOUDINARY_API_SECRET=
+- Academic Management
+- Attendance Tracking
+- Examination Management
+- Student Information System
+- Teacher Management
+- Dynamic School Website
+- Timetable Management
+- Performance Analytics
+- Notice Broadcasting
+- Syllabus Tracking
 
-JWT_SECRET=
+---
 
-PORT=
-📸 Screenshots
+# ✨ Key Features
 
-Add screenshots of:
+## 🌐 Dynamic School Website
 
-Landing Page
-Student Dashboard
-Teacher Dashboard
-Admin Dashboard
-Principal Dashboard
-Attendance Module
-Marks Module
-Timetable
-Gallery
-Notices
-🌐 Live Demo
+- Responsive Design
+- Dynamic Notices
+- School Gallery
+- Achievements
+- Announcements
+- About School
+- Contact Information
+- Admin Controlled Content
 
-Add your deployed application link here.
+---
 
-Website: https://your-demo-link.com
+## 🏫 Complete ERP
 
-Future Improvements
-Online Fee Management
-Parent Portal
-Online Assignments
-Homework Submission
-Report Card PDF
-Email Notifications
-SMS Notifications
-Real-time Chat
-Mobile Application
-🤝 Contributions
+Four Independent Dashboards
 
-Contributions, issues, and feature requests are welcome.
+✅ Student
 
-Feel free to fork the repository and submit a Pull Request.
+✅ Teacher
 
-⭐ Support
+✅ Admin
 
-If you found this project useful, consider giving it a ⭐ Star on GitHub.
+✅ Principal
 
-It helps the project reach more developers.
+---
 
-👨‍💻 Developer
+## 🔐 Secure Authentication
 
-Made with ❤️ using React.js, Express.js, MongoDB, PostgreSQL (Supabase), Cloudinary, Multer, and Node.js.
+- Role Based Login
+- JWT Authentication
+- Protected Routes
+- Secure APIs
+- Authorization Middleware
+
+---
+
+## 📊 Academic Management
+
+- Attendance
+- Marks
+- Timetable
+- Notices
+- Performance
+- Student Profiles
+- Teacher Profiles
+- Syllabus Progress
+
+---
+
+# 📚 Table of Contents
+
+- Overview
+- Vision
+- Features
+- Tech Stack
+- Architecture
+- Website Module
+- ERP Modules
+- Student Portal
+- Teacher Portal
+- Admin Portal
+- Principal Portal
+- Installation
+- Environment Variables
+- Folder Structure
+- Screenshots
+- API Documentation
+- Deployment
+- Roadmap
+- Contribution
+- License
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+| Technology | Purpose |
+|------------|----------|
+| React.js | User Interface |
+| React Router | Routing |
+| Axios | API Communication |
+| CSS / Tailwind *(Replace with yours)* | Styling |
+
+---
+
+## Backend
+
+| Technology | Purpose |
+|------------|----------|
+| Node.js | Runtime |
+| Express.js | REST API |
+| JWT | Authentication |
+| Multer | File Upload |
+| Cloudinary | Image Storage |
+
+---
+
+## Databases
+
+| Database | Usage |
+|-----------|--------|
+| MongoDB | Dynamic Website Data |
+| PostgreSQL (Supabase) | ERP Data |
+
+---
+
+## Other Tools
+
+- Git
+- GitHub
+- Postman
+- VS Code
+
+---
+
+# 🏗 System Architecture
+
+```text
+                    Internet
+                        │
+                        ▼
+          ┌─────────────────────────┐
+          │   Dynamic School Site   │
+          └─────────────────────────┘
+                        │
+                        ▼
+                Express REST API
+                        │
+         ┌──────────────┴──────────────┐
+         ▼                             ▼
+    MongoDB                     PostgreSQL
+ (Website Data)               (ERP Records)
+         │                             │
+         └──────────────┬──────────────┘
+                        ▼
+                 Cloudinary Storage
+```
+
+---
+
+# 🧩 Project Architecture
+
+```text
+                   EduCore ERP
+
+               ┌───────────────┐
+               │   Website      │
+               └───────────────┘
+                      │
+      ┌───────────────┼───────────────┐
+      ▼               ▼               ▼
+
+ Gallery         Achievements      Notices
+
+                      │
+
+               ┌───────────────┐
+               │      ERP      │
+               └───────────────┘
+
+     ┌──────────┬──────────┬──────────┬──────────┐
+     ▼          ▼          ▼          ▼
+
+ Student    Teacher     Admin    Principal
+```
+
+---
+
+# 🌐 Website Module
+
+The public website is completely dynamic.
+
+All website content is controlled directly by the administrator.
+
+## Features
+
+- Home Page
+- About School
+- Principal Message
+- Gallery
+- Achievements
+- Latest Notices
+- Contact Section
+- Responsive Layout
+
+---
+
+## Admin Controls Website
+
+| Feature | Supported |
+|----------|-----------|
+| Upload Gallery Images | ✅ |
+| Publish Notices | ✅ |
+| Add Achievements | ✅ |
+| Edit Content | ✅ |
+| Delete Content | ✅ |
+
+---
+
+# 🏫 ERP Overview
+
+The ERP consists of four independent portals.
+
+| Portal | Purpose |
+|----------|----------|
+| 👨‍🎓 Student | Student Services |
+| 👩‍🏫 Teacher | Academic Management |
+| 👨‍💼 Admin | School Administration |
+| 🎓 Principal | School Monitoring |
+
+Every user has access only to the resources permitted by their assigned role.
+
+---
+
+# ⭐ Why EduCore ERP?
+
+Unlike many traditional school management systems, EduCore ERP combines a **dynamic website**, **role-based ERP**, and **real-time academic management** into a unified platform.
+
+### Major Highlights
+
+- Modern UI
+- Secure Authentication
+- Cloud Image Storage
+- Two Database Architecture
+- Modular Backend
+- Scalable Design
+- Responsive Layout
+- RESTful APIs
+- Academic Analytics
+- Performance Tracking
+- Attendance Monitoring
+- Timetable Management
+- Syllabus Tracking
+- Role-Based Authorization
+- Easy Deployment
+
+---
+
+# 📸 Screenshots
+
+> Replace the placeholders below with actual screenshots.
+
+```
+📷 Landing Page
+
+📷 Student Dashboard
+
+📷 Teacher Dashboard
+
+📷 Admin Dashboard
+
+📷 Principal Dashboard
+
+📷 Attendance Module
+
+📷 Marks Module
+
+📷 Timetable Module
+
+📷 Gallery
+
+📷 Notices
+```
+
+---
+
+## ⏭️ Next Part
+
+In **Part 2**, we'll document each ERP module in detail:
+
+- 👨‍🎓 Student Portal
+- 👩‍🏫 Teacher Portal
+- 👨‍💼 Admin Portal
+- 🎓 Principal Portal
+- Detailed feature tables
+- Permissions matrix
+- Workflow diagrams
+- Dashboard previews
