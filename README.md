@@ -13,34 +13,15 @@
 ### A Modern Full-Stack School Management Platform built with MERN + PostgreSQL (Supabase)
 
 <p align="center">
-
-![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
-
-![NodeJS](https://img.shields.io/badge/Node.js-22-339933?style=for-the-badge&logo=node.js)
-
-![Express](https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express)
-
-![MongoDB](https://img.shields.io/badge/MongoDB-Website-47A248?style=for-the-badge&logo=mongodb)
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-ERP-336791?style=for-the-badge&logo=postgresql)
-
-![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=for-the-badge&logo=supabase)
-
-![Cloudinary](https://img.shields.io/badge/Cloudinary-Media-3448C5?style=for-the-badge&logo=cloudinary)
-
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)
-
 </p>
 
 <p align="center">
 
-<a href="<LIVE_DEMO_URL>">
+<a href="https://erp-frontend-eight-iota.vercel.app/">
 <img src="https://img.shields.io/badge/🚀_Live_Demo-4285F4?style=for-the-badge">
 </a>
 
-<a href="<GITHUB_REPOSITORY>">
+<a href="https://github.com/Ankit-nehra/erp-frontend">
 <img src="https://img.shields.io/badge/📂_Repository-181717?style=for-the-badge&logo=github">
 </a>
 
