@@ -379,3 +379,294 @@ The ERP system provides separate role-based dashboards where each user can acces
 | 🧩 Modular Architecture | Easy future expansion |
 
 ---
+# 🏫 ERP Modules
+
+EduCore ERP contains four role-based portals designed according to the responsibilities of each user.
+
+Each role has controlled access to ensure security and proper data management.
+
+| Role | Access Level | Main Purpose |
+|---|---|---|
+| 👨‍🎓 Student | Personal Data | View academic information |
+| 👩‍🏫 Teacher | Assigned Classes | Manage academic activities |
+| 👨‍💼 Admin | Complete System | Manage school operations |
+| 🎓 Principal | Monitoring Access | Analyze school performance |
+
+---
+
+# 👨‍🎓 Student Portal
+
+The student portal provides students access to their academic information and daily school activities.
+
+Students can view their personal information, attendance, results, notices, syllabus progress, and timetable.
+
+## Student Features
+
+| Module | Description |
+|---|---|
+| 👤 Student Profile | View personal details, parents information, blood group, gender, hostel, bus details |
+| 📅 Attendance | View monthly attendance and complete attendance history |
+| 📝 Results | View test, mid-term, final exam marks and overall performance |
+| 🔔 Notices | Receive notices from assigned teachers |
+| 📚 Syllabus Progress | Track subject-wise syllabus completion status |
+| 🗓 Timetable | View assigned class timetable |
+
+---
+
+## Student Workflow
+
+```mermaid
+flowchart LR
+
+A[Student Login]
+
+A --> B[Student Dashboard]
+
+B --> C[Profile]
+
+B --> D[Attendance]
+
+B --> E[Results]
+
+B --> F[Notices]
+
+B --> G[Syllabus]
+
+B --> H[Timetable]
+```
+
+---
+
+# 👩‍🏫 Teacher Portal
+
+The teacher portal allows teachers to manage only those classes and subjects assigned by the administrator.
+
+Teachers cannot access unauthorized classes or student data.
+
+## Teacher Features
+
+| Module | Description |
+|---|---|
+| 👤 Teacher Profile | View personal profile information |
+| 👨‍🎓 Student Management | View students of assigned classes |
+| 📅 Attendance | Take attendance of assigned students |
+| 📝 Marks Management | Upload test, mid-term and final exam marks |
+| 🔔 Notice Management | Send notices to assigned classes |
+| 📚 Syllabus Tracking | Update syllabus progress |
+| 🗓 Timetable | View assigned weekly timetable |
+
+---
+
+## Teacher Permission System
+
+| Action | Permission |
+|---|---|
+| View Assigned Students | ✅ |
+| View Student Performance | ✅ |
+| Take Attendance | ✅ |
+| Upload Marks | ✅ |
+| Update Syllabus Progress | ✅ |
+| Send Class Notices | ✅ |
+| Access Other Classes | ❌ |
+
+---
+
+## Teacher Academic Workflow
+
+```mermaid
+flowchart LR
+
+A[Teacher Login]
+
+A --> B[Teacher Dashboard]
+
+B --> C[Assigned Classes]
+
+C --> D[Attendance]
+
+C --> E[Marks Upload]
+
+C --> F[Syllabus Update]
+
+C --> G[Class Notices]
+
+```
+
+---
+
+# 👨‍💼 Admin Portal
+
+The admin portal is the central control system of EduCore ERP.
+
+Administrators manage students, teachers, classes, subjects, timetable, and website content.
+
+---
+
+## Admin Features
+
+| Module | Description |
+|---|---|
+| 👨‍🎓 Student Admission | Add, edit, view and delete student records |
+| 👩‍🏫 Teacher Management | Manage teacher information |
+| 🏫 Class Assignment | Assign classes to teachers |
+| 📚 Subject Management | Assign subjects to classes |
+| 🗓 Timetable Management | Create and upload class timetables |
+| 📰 Notice Management | Publish school notices |
+| 🖼 Gallery Management | Upload website gallery images |
+| 🏆 Achievement Management | Add school achievements |
+
+---
+
+## Admin Control Panel
+
+| Action | Available |
+|---|---|
+| Manage Students | ✅ |
+| Assign Teachers | ✅ |
+| Assign Subjects | ✅ |
+| Upload Timetable | ✅ |
+| Manage Website Content | ✅ |
+| Manage Notices | ✅ |
+| Manage Gallery | ✅ |
+| Manage Achievements | ✅ |
+
+---
+
+## Admin Workflow
+
+```mermaid
+flowchart LR
+
+A[Admin Login]
+
+A --> B[Admin Dashboard]
+
+B --> C[Student Admission]
+
+B --> D[Teacher Assignment]
+
+B --> E[Subject Assignment]
+
+B --> F[Timetable]
+
+B --> G[Website Content]
+
+```
+
+---
+
+# 🎓 Principal Portal
+
+The principal portal provides a complete overview of school performance.
+
+The principal can monitor academic activities without modifying operational data.
+
+---
+
+## Principal Features
+
+| Module | Description |
+|---|---|
+| 👥 Student Overview | View student information |
+| 📊 Performance Monitoring | Analyze student academic performance |
+| 📅 Attendance Reports | Monitor attendance records |
+| 📝 Result Analysis | View marks and examination performance |
+| 📚 Academic Tracking | Monitor syllabus progress |
+
+---
+
+## Principal Access
+
+| Feature | Permission |
+|---|---|
+| View Student Profiles | ✅ |
+| View Attendance Reports | ✅ |
+| View Marks Performance | ✅ |
+| Monitor Teachers | ✅ |
+| Modify Academic Data | ❌ |
+
+---
+
+## Principal Workflow
+
+```mermaid
+flowchart LR
+
+A[Principal Login]
+
+A --> B[Principal Dashboard]
+
+B --> C[Student Overview]
+
+B --> D[Attendance Reports]
+
+B --> E[Performance Analytics]
+
+B --> F[Academic Monitoring]
+
+```
+
+---
+
+# 🔐 Role Permission Matrix
+
+| Feature | Student | Teacher | Admin | Principal |
+|---|---|---|---|---|
+| View Own Profile | ✅ | ✅ | ✅ | ✅ |
+| View Students | ❌ | Assigned Only | ✅ | ✅ |
+| Attendance | View Own | Manage Assigned | Manage All | View All |
+| Marks | View Own | Upload Assigned | Manage All | View All |
+| Notices | Receive | Send Class Notice | Send School Notice | View |
+| Timetable | View | Assigned Classes | Manage | View |
+| Website Content | ❌ | ❌ | Manage | View |
+
+---
+
+# 🔄 Complete ERP Data Flow
+
+```mermaid
+flowchart TD
+
+ADMIN[Admin]
+
+ADMIN --> ASSIGN[Assign Teachers & Classes]
+
+ASSIGN --> TEACHER[Teacher]
+
+
+TEACHER --> ATTENDANCE[Attendance]
+
+TEACHER --> MARKS[Marks]
+
+TEACHER --> SYLLABUS[Syllabus Progress]
+
+
+
+ATTENDANCE --> STUDENT[Student]
+
+MARKS --> STUDENT
+
+SYLLABUS --> STUDENT
+
+
+
+STUDENT --> PRINCIPAL[Principal Monitoring]
+
+```
+
+---
+
+# ✅ ERP Module Summary
+
+| Module | Status |
+|---|---|
+| Student Management | ✅ Completed |
+| Teacher Management | ✅ Completed |
+| Attendance System | ✅ Completed |
+| Examination System | ✅ Completed |
+| Notice System | ✅ Completed |
+| Syllabus Tracking | ✅ Completed |
+| Timetable Management | ✅ Completed |
+| Website CMS | ✅ Completed |
+
+---
