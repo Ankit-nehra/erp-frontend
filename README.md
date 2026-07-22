@@ -2,38 +2,63 @@
 
 <div align="center">
 
-<!-- Replace this with your project banner -->
-
 <img src="./src/assets/banner.png" alt="EduCore ERP Banner" width="100%" />
 
 <br>
 
-# 🏫 Complete School Website + ERP Management System
+# 🏫 Modern School Website & ERP Management System
 
-### A Modern Full-Stack School Management Platform built with MERN + PostgreSQL (Supabase)
+### A Full-Stack School Management Platform built with **React.js**, **Express.js**, **MongoDB**, **PostgreSQL (Supabase)** and **Cloudinary**
 
 <p align="center">
+
+<img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/Node.js-22-339933?style=for-the-badge&logo=node.js&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/Express.js-Backend-000000?style=for-the-badge&logo=express"/>
+
+<img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/PostgreSQL-Supabase-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/Cloudinary-Media-3448C5?style=for-the-badge&logo=cloudinary"/>
+
+<img src="https://img.shields.io/badge/JWT-Authentication-orange?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/Open%20Source-❤-red?style=for-the-badge"/>
+
 </p>
 
 <p align="center">
 
 <a href="https://erp-frontend-eight-iota.vercel.app/">
+
 <img src="https://img.shields.io/badge/🚀_Live_Demo-4285F4?style=for-the-badge">
+
 </a>
 
 <a href="https://github.com/Ankit-nehra/erp-frontend">
-<img src="https://img.shields.io/badge/📂_Repository-181717?style=for-the-badge&logo=github">
+
+<img src="https://img.shields.io/badge/📂_GitHub-181717?style=for-the-badge&logo=github">
+
 </a>
 
 <a href="<API_DOCS_URL>">
-<img src="https://img.shields.io/badge/API_Documentation-orange?style=for-the-badge">
+
+<img src="https://img.shields.io/badge/📚_API_Documentation-FF9800?style=for-the-badge">
+
 </a>
 
 </p>
 
 ---
 
-### ⭐ If you like this project, don't forget to give it a Star!
+### ⭐ If you found this project useful, don't forget to leave a Star!
+
+It motivates future development and helps more developers discover the project.
 
 </div>
 
@@ -41,28 +66,40 @@
 
 # 📖 Overview
 
-**EduCore ERP** is a modern **School Website + Enterprise Resource Planning (ERP)** platform designed to digitize every major operation inside an educational institution.
+**EduCore ERP** is a modern **School Website + Enterprise Resource Planning (ERP)** platform that digitizes every essential academic and administrative process within an educational institution.
 
-Unlike traditional school management software, EduCore ERP combines a **dynamic public-facing website** with a **secure role-based ERP system**, allowing administrators, teachers, students, and principals to collaborate through one integrated platform.
+Instead of managing multiple disconnected systems, this application combines a **dynamic public school website** with a **secure role-based ERP**, allowing **Students**, **Teachers**, **Administrators**, and **Principals** to collaborate through a single integrated platform.
 
-The project is designed with scalability, modularity, and security in mind, making it suitable for schools seeking a complete digital ecosystem.
+The project is designed with scalability, modularity, and security in mind, making it suitable for schools looking to modernize their operations.
+
+---
+
+# 🚀 Why EduCore ERP?
+
+Managing a school involves hundreds of daily operations—from attendance and examinations to notices, admissions, timetables, and performance tracking.
+
+EduCore ERP centralizes all of these processes into one modern web application, reducing paperwork, improving communication, and making academic data easily accessible through dedicated dashboards.
+
+Whether you're a student checking attendance, a teacher uploading marks, an administrator managing admissions, or a principal monitoring overall school performance, every user gets a dedicated experience tailored to their responsibilities.
 
 ---
 
 # 🎯 Vision
 
-Our goal is to eliminate paperwork and centralize school management by providing:
+Our vision is to provide educational institutions with a complete digital ecosystem that simplifies administration and enhances learning.
 
-- Academic Management
-- Attendance Tracking
+### The platform focuses on:
+
+- Student Information Management
+- Academic Performance Tracking
+- Attendance Monitoring
 - Examination Management
-- Student Information System
 - Teacher Management
 - Dynamic School Website
 - Timetable Management
-- Performance Analytics
 - Notice Broadcasting
-- Syllabus Tracking
+- Gallery & Achievements
+- Syllabus Progress Tracking
 
 ---
 
@@ -70,311 +107,178 @@ Our goal is to eliminate paperwork and centralize school management by providing
 
 ## 🌐 Dynamic School Website
 
-- Responsive Design
+A fully dynamic public website managed directly by the administrator.
+
+### Features
+
+- Responsive Landing Page
+- School Information
+- Principal's Message
 - Dynamic Notices
-- School Gallery
+- Gallery
 - Achievements
-- Announcements
-- About School
 - Contact Information
 - Admin Controlled Content
 
 ---
 
-## 🏫 Complete ERP
+## 🏫 School ERP
 
-Four Independent Dashboards
+The ERP is divided into four independent role-based dashboards.
 
-✅ Student
-
-✅ Teacher
-
-✅ Admin
-
-✅ Principal
+| Portal | Description |
+|---------|-------------|
+| 👨‍🎓 Student | Attendance, Results, Timetable, Notices |
+| 👩‍🏫 Teacher | Attendance, Marks, Notices, Syllabus |
+| 👨‍💼 Admin | Admissions, Website, Teacher & Class Management |
+| 🎓 Principal | Performance Analytics & School Monitoring |
 
 ---
 
 ## 🔐 Secure Authentication
 
-- Role Based Login
 - JWT Authentication
 - Protected Routes
-- Secure APIs
-- Authorization Middleware
+- Role-Based Authorization
+- Secure REST APIs
+- Permission-Based Access Control
 
 ---
 
 ## 📊 Academic Management
 
-- Attendance
-- Marks
-- Timetable
-- Notices
-- Performance
-- Student Profiles
-- Teacher Profiles
+- Student Attendance
+- Monthly Attendance Reports
+- Test Marks
+- Mid-Term Results
+- Final Examination Results
+- Overall Academic Performance
+- Timetable Management
 - Syllabus Progress
+- Notice Distribution
+
+---
+
+# 📈 Project Highlights
+
+| Feature | Availability |
+|----------|-------------:|
+| Dynamic School Website | ✅ |
+| Role-Based ERP | ✅ |
+| Attendance System | ✅ |
+| Examination System | ✅ |
+| Timetable Management | ✅ |
+| Student Profiles | ✅ |
+| Teacher Profiles | ✅ |
+| Principal Dashboard | ✅ |
+| Notice Management | ✅ |
+| Gallery Management | ✅ |
+| Achievement Management | ✅ |
+| Cloud Image Storage | ✅ |
+| Responsive UI | ✅ |
 
 ---
 
 # 📚 Table of Contents
 
-- Overview
-- Vision
-- Features
-- Tech Stack
-- Architecture
-- Website Module
-- ERP Modules
-- Student Portal
-- Teacher Portal
-- Admin Portal
-- Principal Portal
-- Installation
-- Environment Variables
-- Folder Structure
-- Screenshots
-- API Documentation
-- Deployment
-- Roadmap
-- Contribution
-- License
+- [📖 Overview](#-overview)
+- [🚀 Why EduCore ERP?](#-why-educore-erp)
+- [🎯 Vision](#-vision)
+- [✨ Key Features](#-key-features)
+- [🛠 Tech Stack](#-tech-stack)
+- [🏗 System Architecture](#-system-architecture)
+- [🧩 Project Architecture](#-project-architecture)
+- [🌐 Website Module](#-website-module)
+- [🏫 ERP Overview](#-erp-overview)
+- [👨‍🎓 Student Portal](#-student-portal)
+- [👩‍🏫 Teacher Portal](#-teacher-portal)
+- [👨‍💼 Admin Portal](#-admin-portal)
+- [🎓 Principal Portal](#-principal-portal)
+- [📸 Screenshots](#-screenshots)
+- [⚙ Installation](#-installation)
+- [🔐 Environment Variables](#-environment-variables)
+- [📂 Folder Structure](#-folder-structure)
+- [📡 API Documentation](#-api-documentation)
+- [🚀 Deployment](#-deployment)
+- [🛣 Roadmap](#-roadmap)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
 # 🛠 Tech Stack
 
-## Frontend
+## 💻 Frontend
 
 | Technology | Purpose |
 |------------|----------|
 | React.js | User Interface |
-| React Router | Routing |
+| React Router DOM | Client-side Routing |
 | Axios | API Communication |
-| CSS / Tailwind *(Replace with yours)* | Styling |
+| CSS / Tailwind CSS | Styling *(Replace with your actual CSS framework if different)* |
 
 ---
 
-## Backend
+## ⚙ Backend
 
 | Technology | Purpose |
 |------------|----------|
-| Node.js | Runtime |
+| Node.js | JavaScript Runtime |
 | Express.js | REST API |
 | JWT | Authentication |
 | Multer | File Upload |
-| Cloudinary | Image Storage |
+| Cloudinary | Cloud Image Storage |
 
 ---
 
-## Databases
+## 🗄 Databases
 
-| Database | Usage |
-|-----------|--------|
-| MongoDB | Dynamic Website Data |
+| Database | Purpose |
+|-----------|----------|
+| MongoDB | Website Content |
 | PostgreSQL (Supabase) | ERP Data |
 
 ---
 
-## Other Tools
+## 🧰 Development Tools
 
 - Git
 - GitHub
 - Postman
-- VS Code
+- Visual Studio Code
+- npm
 
 ---
 
-# 🏗 System Architecture
+# 📊 Project Statistics
 
-```text
-                    Internet
-                        │
-                        ▼
-          ┌─────────────────────────┐
-          │   Dynamic School Site   │
-          └─────────────────────────┘
-                        │
-                        ▼
-                Express REST API
-                        │
-         ┌──────────────┴──────────────┐
-         ▼                             ▼
-    MongoDB                     PostgreSQL
- (Website Data)               (ERP Records)
-         │                             │
-         └──────────────┬──────────────┘
-                        ▼
-                 Cloudinary Storage
-```
+| Metric | Value |
+|--------|------:|
+| User Roles | 4 |
+| Major Modules | 10+ |
+| Databases | 2 |
+| REST APIs | 20+ |
+| Authentication | JWT |
+| Cloud Storage | Cloudinary |
+| Architecture | MERN + PostgreSQL |
 
 ---
 
-# 🧩 Project Architecture
+# ⭐ Repository Features
 
-```text
-                   EduCore ERP
-
-               ┌───────────────┐
-               │   Website      │
-               └───────────────┘
-                      │
-      ┌───────────────┼───────────────┐
-      ▼               ▼               ▼
-
- Gallery         Achievements      Notices
-
-                      │
-
-               ┌───────────────┐
-               │      ERP      │
-               └───────────────┘
-
-     ┌──────────┬──────────┬──────────┬──────────┐
-     ▼          ▼          ▼          ▼
-
- Student    Teacher     Admin    Principal
-```
-
----
-
-# 🌐 Website Module
-
-The public website is completely dynamic.
-
-All website content is controlled directly by the administrator.
-
-## Features
-
-- Home Page
-- About School
-- Principal Message
-- Gallery
-- Achievements
-- Latest Notices
-- Contact Section
-- Responsive Layout
-
----
-
-## Admin Controls Website
-
-| Feature | Supported |
-|----------|-----------|
-| Upload Gallery Images | ✅ |
-| Publish Notices | ✅ |
-| Add Achievements | ✅ |
-| Edit Content | ✅ |
-| Delete Content | ✅ |
-
----
-
-# 🏫 ERP Overview
-
-The ERP consists of four independent portals.
-
-| Portal | Purpose |
-|----------|----------|
-| 👨‍🎓 Student | Student Services |
-| 👩‍🏫 Teacher | Academic Management |
-| 👨‍💼 Admin | School Administration |
-| 🎓 Principal | School Monitoring |
-
-Every user has access only to the resources permitted by their assigned role.
-
----
-
-# ⭐ Why EduCore ERP?
-
-Unlike many traditional school management systems, EduCore ERP combines a **dynamic website**, **role-based ERP**, and **real-time academic management** into a unified platform.
-
-### Major Highlights
-
-- Modern UI
-- Secure Authentication
-- Cloud Image Storage
-- Two Database Architecture
-- Modular Backend
-- Scalable Design
-- Responsive Layout
+- Modern UI/UX
+- Enterprise Architecture
 - RESTful APIs
+- Dual Database Design
+- Modular Backend
+- Responsive Layout
+- Cloud-Based Image Storage
 - Academic Analytics
-- Performance Tracking
-- Attendance Monitoring
-- Timetable Management
-- Syllabus Tracking
+- Attendance Tracking
+- Examination Management
+- Dynamic Website
 - Role-Based Authorization
 - Easy Deployment
+- Scalable Project Structure
 
 ---
-
-# 📸 Screenshots
-Website home page
-<img src="./src/assets/website.png" alt="EduCore ERP Banner" width="100%" />
-Teacher-Dashboard
-<img src="./src/assets/teacher-dash.png" alt="EduCore ERP Banner" width="100%" />
-Teacher see student list 
-<img src="./src/assets/teacher-studentInfo.png" alt="EduCore ERP Banner" width="100%" />
-Teacher see student profile 
-<img src="./src/assets/teacher-studentInfo-2.png" alt="EduCore ERP Banner" width="100%" />
-teacher take attendace 
-<img src="./src/assets/teacher-attendance.png" alt="EduCore ERP Banner" width="100%" />
-teacher uplaod marks 
-<img src="./src/assets/teacher-mark-upload.png" alt="EduCore ERP Banner" width="100%" />
-teacher syllabus
-<img src="./src/assets/teacher-syllabus.png" alt="EduCore ERP Banner" width="100%" />
-teacher upload notices 
-<img src="./src/assets/techer-notice.png" alt="EduCore ERP Banner" width="100%" />
-teacher see timetable
-<img src="./src/assets/teacher-timetable.png" alt="EduCore ERP Banner" width="100%" />
-
-student dashboard
-<img src="./src/assets/student-dash.png" alt="EduCore ERP Banner" width="100%" />
-student-attendance
-<img src="./src/assets/student-attendance.png" alt="EduCore ERP Banner" width="100%" />
-student-notices
-<img src="./src/assets/student-notice.png" alt="EduCore ERP Banner" width="100%" />
-student-syllabus
-<img src="./src/assets/student-syllabus.png" alt="EduCore ERP Banner" width="100%" />
-student-timetable
-<img src="./src/assets/student-timetable.png" alt="EduCore ERP Banner" width="100%" />
-student-result
-<img src="./src/assets/studetnt-result.png" alt="EduCore ERP Banner" width="100%" />
-
-principal see student list 
-<img src="./src/assets/principal-studentInfo.png" alt="EduCore ERP Banner" width="100%" />
-principal see student details 
-<img src="./src/assets/principal-studentInfo-2.png" alt="EduCore ERP Banner" width="100%" />
-
-admin dashbaord
-<img src="./src/assets/admin-dash.png" alt="EduCore ERP Banner" width="100%" />
-admin notice
-<img src="./src/assets/admin-notice.png" alt="EduCore ERP Banner" width="100%" />
-admin gallery
-<img src="./src/assets/admin-gallery.png" alt="EduCore ERP Banner" width="100%" />
-admin achivements
-<img src="./src/assets/admin-achievement.png" alt="EduCore ERP Banner" width="100%" />
-admin admission
-<img src="./src/assets/admin-admission.png" alt="EduCore ERP Banner" width="100%" />
-admin timetable
-<img src="./src/assets/admin-timetable.png" alt="EduCore ERP Banner" width="100%" />
-admin assign teacher to their class
-<img src="./src/assets/admim-assign-teacher.png" alt="EduCore ERP Banner" width="100%" />
-admin assign subject to classes
-<img src="./src/assets/admin-class-subject.png" alt="EduCore ERP Banner" width="100%" />
-
-
-
-## ⏭️ Next Part
-
-In **Part 2**, we'll document each ERP module in detail:
-
-- 👨‍🎓 Student Portal
-- 👩‍🏫 Teacher Portal
-- 👨‍💼 Admin Portal
-- 🎓 Principal Portal
-- Detailed feature tables
-- Permissions matrix
-- Workflow diagrams
-- Dashboard previews
