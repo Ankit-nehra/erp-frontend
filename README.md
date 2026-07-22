@@ -28,6 +28,10 @@
 
 <img src="https://img.shields.io/badge/JWT-Security-orange?style=for-the-badge"/>
 
+<img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/Maintained-Yes-blue?style=for-the-badge"/>
+
 </p>
 
 
@@ -44,6 +48,24 @@
 <img src="https://img.shields.io/badge/💻_Source_Code-181717?style=for-the-badge&logo=github"/>
 
 </a>
+<a href="YOUR_BACKEND_REPO_LINK">
+
+<img src="https://img.shields.io/badge/⚙️_Backend_Code-181717?style=for-the-badge&logo=github"/>
+
+</a>
+
+<a href="YOUR_LINKEDIN_URL">
+
+<img src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin"/>
+
+</a>
+
+
+<a href="YOUR_PORTFOLIO_URL">
+
+<img src="https://img.shields.io/badge/Portfolio-Website-black?style=for-the-badge&logo=googlechrome"/>
+
+</a>
 
 </p>
 
@@ -54,6 +76,14 @@
 
 
 ---
+# 🔑 Demo Credentials
+
+| Role | Email | Password |
+|---|---|---|
+| Student | your-email | your-password |
+| Teacher | your-email | your-password |
+| Admin | your-email | your-password |
+| Principal | your-email | your-password |
 
 # 📖 Overview
 
@@ -1053,34 +1083,31 @@ This project is licensed under the MIT License.
 You are free to use, modify and distribute this project with proper attribution.
 
 ---
-
 # 👨‍💻 Developer
+
+<div align="center">
 
 ## Ankit Nehra
 
-Full Stack Developer
+### Full Stack Developer | MERN Stack Developer
 
-GitHub:
+Building scalable web applications with modern technologies.
 
-```
-https://github.com/Ankit-nehra
-```
+<br/>
 
-LinkedIn:
+<a href="https://github.com/Ankit-nehra">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github"/>
+</a>
 
-```
-<YOUR_LINKEDIN_PROFILE>
-```
+<a href="YOUR_LINKEDIN_URL">
+<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin"/>
+</a>
 
-Portfolio:
+<a href="YOUR_PORTFOLIO_URL">
+<img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=googlechrome"/>
+</a>
 
-```
-<YOUR_PORTFOLIO_URL>
-```
-
----
-
-<div align="center">
+</div>
 
 ## ⭐ Thank You For Visiting EduCore ERP
 
