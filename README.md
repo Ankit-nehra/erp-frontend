@@ -1,4 +1,4 @@
-<img width="708" height="560" alt="image" src="https://github.com/user-attachments/assets/761083b2-01be-43d0-8651-5c7cc2790acd" /># 🎓 EduCore ERP
+# 🎓 EduCore ERP
 
 <div align="center">
 
