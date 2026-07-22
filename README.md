@@ -238,3 +238,358 @@ School Analytics, Performance & Attendance Monitoring
 
 
 ---
+
+# 📚 Table of Contents
+
+| Section | Description |
+|---|---|
+| 📖 Overview | Project introduction |
+| 🚀 Why EduCore ERP | Problem & solution |
+| 🎯 Vision | Project goals |
+| ✨ Features | Main capabilities |
+| 🛠 Tech Stack | Technologies used |
+| 🏗 Architecture | System design |
+| 🌐 Website Module | Public website features |
+| 🏫 ERP Overview | Role-based system |
+| 👨‍🎓 Student Portal | Student features |
+| 👩‍🏫 Teacher Portal | Teacher features |
+| 👨‍💼 Admin Portal | Administration features |
+| 🎓 Principal Portal | Monitoring features |
+| 📸 Screenshots | Application preview |
+| ⚙ Installation | Setup guide |
+| 🔐 Environment Variables | Configuration |
+| 📂 Folder Structure | Project organization |
+| 🚀 Deployment | Hosting details |
+| 📡 API Documentation | Backend APIs |
+| 🛣 Roadmap | Future improvements |
+| 🤝 Contribution | Contribution guide |
+| 📜 License | Project license |
+
+---
+
+# 🛠 Technology Stack
+
+
+<table>
+
+<tr>
+
+<td width="50%">
+
+## 🎨 Frontend
+
+| Technology | Purpose |
+|---|---|
+| ⚛️ React.js | User Interface |
+| 🔀 React Router | Client-side Navigation |
+| 📡 Axios | API Communication |
+| 🎨 CSS / Tailwind | Styling |
+| 🔐 JWT | Authentication Handling |
+
+</td>
+
+
+<td width="50%">
+
+## ⚙ Backend
+
+| Technology | Purpose |
+|---|---|
+| 🟢 Node.js | Server Runtime |
+| 🚂 Express.js | REST API Framework |
+| 🔑 JWT | Secure Authentication |
+| 📤 Multer | File Upload Handling |
+| ☁️ Cloudinary | Cloud Image Storage |
+
+</td>
+
+</tr>
+
+</table>
+
+
+<br>
+
+
+<table>
+
+<tr>
+
+<td width="50%">
+
+
+## 🗄 Database
+
+
+| Database | Usage |
+|---|---|
+| 🍃 MongoDB | Website Data |
+| 🐘 PostgreSQL | ERP Data |
+| ⚡ Supabase | PostgreSQL Platform |
+
+
+</td>
+
+
+<td width="50%">
+
+
+## 🧰 Development Tools
+
+
+| Tool | Usage |
+|---|---|
+| Git | Version Control |
+| GitHub | Code Hosting |
+| Postman | API Testing |
+| VS Code | Development |
+
+
+</td>
+
+</tr>
+
+</table>
+
+
+---
+
+# 🏗 System Architecture
+
+
+```mermaid
+flowchart TD
+
+USER[Users]
+
+USER --> WEBSITE[Dynamic School Website]
+
+USER --> ERP[ERP Dashboard]
+
+
+ERP --> STUDENT[Student Portal]
+
+ERP --> TEACHER[Teacher Portal]
+
+ERP --> ADMIN[Admin Portal]
+
+ERP --> PRINCIPAL[Principal Portal]
+
+
+WEBSITE --> API[Express REST API]
+
+ERP --> API
+
+
+API --> MONGO[(MongoDB)]
+
+API --> POSTGRES[(PostgreSQL Supabase)]
+
+API --> CLOUD[Cloudinary Storage]
+```
+
+
+---
+
+# 🔄 Application Workflow
+
+
+```mermaid
+flowchart LR
+
+A[User Login]
+
+A --> B{Role Verification}
+
+
+B -->|Student| C[Student Dashboard]
+
+B -->|Teacher| D[Teacher Dashboard]
+
+B -->|Admin| E[Admin Dashboard]
+
+B -->|Principal| F[Principal Dashboard]
+
+
+C --> G[Attendance Results Notices]
+
+D --> H[Marks Attendance Syllabus]
+
+E --> I[Admissions Website Management]
+
+F --> J[School Analytics]
+```
+
+
+---
+
+# 🧩 Project Architecture
+
+
+```
+EduCore ERP
+
+│
+├── 🌐 School Website
+│
+│   ├── Home
+│   ├── About School
+│   ├── Notices
+│   ├── Gallery
+│   ├── Achievements
+│   └── Contact
+│
+│
+└── 🏫 ERP System
+    │
+    ├── 👨‍🎓 Student Module
+    │
+    ├── 👩‍🏫 Teacher Module
+    │
+    ├── 👨‍💼 Admin Module
+    │
+    └── 🎓 Principal Module
+
+```
+
+
+---
+
+# 📈 Project Statistics
+
+
+<table>
+
+<tr>
+
+<td align="center">
+
+## 👥
+
+### 4
+
+User Roles
+
+</td>
+
+
+<td align="center">
+
+## 📚
+
+### 10+
+
+Major Modules
+
+</td>
+
+
+<td align="center">
+
+## 🗄
+
+### 2
+
+Database Systems
+
+</td>
+
+
+<td align="center">
+
+## ☁️
+
+### Cloud
+
+Storage
+
+</td>
+
+
+</tr>
+
+</table>
+
+
+
+| Category | Implementation |
+|---|---|
+| Frontend | React.js |
+| Backend | Express.js + Node.js |
+| Website Database | MongoDB |
+| ERP Database | PostgreSQL |
+| Authentication | JWT |
+| Media Storage | Cloudinary |
+| API Style | REST API |
+| Architecture | Role-Based ERP |
+
+
+---
+
+# 🌐 Website Module
+
+
+The website module provides a complete digital identity for the school.
+
+Administrators can update website content without modifying code.
+
+
+## Website Features
+
+
+| Feature | Description |
+|---|---|
+| 🏫 School Information | Display school details |
+| 📰 Notices | Publish important announcements |
+| 🖼 Gallery | Upload school images |
+| 🏆 Achievements | Showcase school achievements |
+| 📞 Contact | Communication information |
+
+
+---
+
+# 👨‍💼 Website Administration
+
+
+| Admin Action | Available |
+|---|---|
+| Upload Gallery Images | ✅ |
+| Create Notices | ✅ |
+| Publish Achievements | ✅ |
+| Update Website Content | ✅ |
+| Remove Content | ✅ |
+
+
+---
+
+# 🏫 ERP System Overview
+
+
+EduCore ERP provides separate dashboards according to user responsibilities.
+
+
+| Role | Main Responsibilities |
+|---|---|
+| 👨‍🎓 Student | View profile, attendance, marks, timetable, notices |
+| 👩‍🏫 Teacher | Manage assigned classes, attendance, marks, syllabus |
+| 👨‍💼 Admin | Manage students, teachers, classes, website |
+| 🎓 Principal | Monitor complete school performance |
+
+
+---
+
+# ⭐ Main Advantages
+
+
+| Advantage | Benefit |
+|---|---|
+| 🎯 Role-Based System | Every user sees relevant information |
+| ⚡ Digital Workflow | Reduces paperwork |
+| 📊 Analytics | Better decision making |
+| 🔐 Secure Access | Protected information |
+| ☁ Cloud Storage | Reliable media management |
+| 📱 Responsive Design | Works across devices |
+| 🏗 Scalable Architecture | Easy future expansion |
+
+
+---
