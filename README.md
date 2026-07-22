@@ -670,3 +670,420 @@ STUDENT --> PRINCIPAL[Principal Monitoring]
 | Website CMS | ✅ Completed |
 
 ---
+# 📸 Screenshots
+
+The following screenshots demonstrate the major modules and dashboards available in EduCore ERP.
+
+---
+
+# 🌐 Website
+
+## 🏫 School Website Homepage
+
+<img src="./src/assets/website.png" alt="School Website Homepage" width="100%"/>
+
+
+---
+
+# 👩‍🏫 Teacher Portal
+
+## 📊 Teacher Dashboard
+
+Teacher dashboard provides quick access to assigned classes, students, attendance, marks, notices, syllabus and timetable.
+
+<img src="./src/assets/teacher-dash.png" alt="Teacher Dashboard" width="100%"/>
+
+
+## 👨‍🎓 Assigned Student List
+
+Teachers can view only students belonging to classes assigned by the administrator.
+
+<img src="./src/assets/teacher-studentInfo.png" alt="Teacher Student List" width="100%"/>
+
+
+## 👤 Student Profile View
+
+Teachers can view student information, attendance and academic performance of assigned students.
+
+<img src="./src/assets/teacher-studentInfo-2.png" alt="Teacher Student Profile" width="100%"/>
+
+
+## 📅 Attendance Management
+
+Teachers can record attendance for their assigned classes.
+
+<img src="./src/assets/teacher-attendance.png" alt="Teacher Attendance" width="100%"/>
+
+
+## 📝 Marks Upload
+
+Teachers can upload test, mid-term and final examination marks.
+
+<img src="./src/assets/teacher-mark-upload.png" alt="Teacher Marks Upload" width="100%"/>
+
+
+## 📚 Syllabus Progress Tracking
+
+Teachers can update syllabus status:
+
+- In Progress
+- Pending
+- Completed
+
+<img src="./src/assets/teacher-syllabus.png" alt="Teacher Syllabus" width="100%"/>
+
+
+## 🔔 Class Notice Management
+
+Teachers can send notices to assigned classes.
+
+<img src="./src/assets/techer-notice.png" alt="Teacher Notice" width="100%"/>
+
+
+## 🗓 Teacher Timetable
+
+Teachers can view their assigned weekly timetable.
+
+<img src="./src/assets/teacher-timetable.png" alt="Teacher Timetable" width="100%"/>
+
+
+---
+
+# 👨‍🎓 Student Portal
+
+## 📊 Student Dashboard
+
+<img src="./src/assets/student-dash.png" alt="Student Dashboard" width="100%"/>
+
+
+## 📅 Attendance History
+
+Students can view monthly attendance and complete attendance records.
+
+<img src="./src/assets/student-attendance.png" alt="Student Attendance" width="100%"/>
+
+
+## 🔔 Student Notices
+
+Students receive notices sent by teachers.
+
+<img src="./src/assets/student-notice.png" alt="Student Notices" width="100%"/>
+
+
+## 📚 Student Syllabus Progress
+
+Students can track subject-wise syllabus completion.
+
+<img src="./src/assets/student-syllabus.png" alt="Student Syllabus" width="100%"/>
+
+
+## 🗓 Student Timetable
+
+<img src="./src/assets/student-timetable.png" alt="Student Timetable" width="100%"/>
+
+
+## 📝 Student Results
+
+Students can view examination marks and overall performance.
+
+<img src="./src/assets/studetnt-result.png" alt="Student Results" width="100%"/>
+
+
+---
+
+# 🎓 Principal Portal
+
+## 👥 Student Overview
+
+Principal can monitor student information.
+
+<img src="./src/assets/principal-studentInfo.png" alt="Principal Student List" width="100%"/>
+
+
+## 📊 Student Performance Details
+
+Principal can analyze student academic information.
+
+<img src="./src/assets/principal-studentInfo-2.png" alt="Principal Student Details" width="100%"/>
+
+
+---
+
+# 👨‍💼 Admin Portal
+
+## 📊 Admin Dashboard
+
+<img src="./src/assets/admin-dash.png" alt="Admin Dashboard" width="100%"/>
+
+
+## 📰 Notice Management
+
+Admin can publish notices visible on the school website.
+
+<img src="./src/assets/admin-notice.png" alt="Admin Notice" width="100%"/>
+
+
+## 🖼 Gallery Management
+
+Admin can upload and manage school gallery images.
+
+<img src="./src/assets/admin-gallery.png" alt="Admin Gallery" width="100%"/>
+
+
+## 🏆 Achievement Management
+
+Admin can showcase school achievements.
+
+<img src="./src/assets/admin-achievement.png" alt="Admin Achievement" width="100%"/>
+
+
+## 👨‍🎓 Student Admission Management
+
+Admin can add, update, view and delete student records.
+
+<img src="./src/assets/admin-admission.png" alt="Admin Admission" width="100%"/>
+
+
+## 🗓 Timetable Management
+
+<img src="./src/assets/admin-timetable.png" alt="Admin Timetable" width="100%"/>
+
+
+## 👩‍🏫 Teacher-Class Assignment
+
+Admin assigns teachers to specific classes.
+
+<img src="./src/assets/admim-assign-teacher.png" alt="Teacher Assignment" width="100%"/>
+
+
+## 📚 Subject-Class Assignment
+
+Admin assigns subjects according to classes.
+
+<img src="./src/assets/admin-class-subject.png" alt="Subject Assignment" width="100%"/>
+
+
+---
+
+# ⚙ Installation
+
+Follow these steps to run EduCore ERP locally.
+
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/Ankit-nehra/erp-frontend.git
+
+cd erp-frontend
+```
+
+
+## 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+
+## 3️⃣ Setup Environment Variables
+
+Create a `.env` file:
+
+```env
+# Frontend
+
+VITE_API_URL=your_backend_api_url
+```
+
+
+Backend environment example:
+
+```env
+PORT=5000
+
+DATABASE_URL=your_postgresql_connection
+
+MONGO_URI=your_mongodb_connection
+
+JWT_SECRET=your_secret_key
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+
+CLOUDINARY_API_KEY=your_api_key
+
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+
+## 4️⃣ Run Application
+
+Frontend:
+
+```bash
+npm run dev
+```
+
+
+Backend:
+
+```bash
+npm start
+```
+
+---
+
+# 📂 Folder Structure
+
+Example project structure:
+
+```
+EduCore ERP
+
+├── frontend
+│
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── routes
+│   │   ├── services
+│   │   └── assets
+│
+│
+├── backend
+│
+│   ├── controllers
+│   ├── routes
+│   ├── models
+│   ├── middleware
+│   ├── config
+│   └── utils
+│
+└── README.md
+```
+
+---
+
+# 📡 API Documentation
+
+API documentation will be available here:
+
+```
+<API_DOCUMENTATION_URL>
+```
+
+The backend follows REST API architecture.
+
+Main API categories:
+
+| Module | APIs |
+|---|---|
+| Authentication | Login, Register, Authorization |
+| Students | Student management |
+| Teachers | Teacher operations |
+| Attendance | Attendance management |
+| Results | Marks management |
+| Notices | Communication |
+| Website | Gallery, achievements, notices |
+
+---
+
+# 🚀 Deployment
+
+Recommended deployment stack:
+
+| Service | Usage |
+|---|---|
+| Vercel | Frontend Hosting |
+| Render / Railway | Backend Hosting |
+| Supabase | PostgreSQL Database |
+| MongoDB Atlas | MongoDB Database |
+| Cloudinary | Image Storage |
+
+---
+
+# 🛣 Future Roadmap
+
+Future improvements planned:
+
+| Feature | Status |
+|---|---|
+| 📱 Mobile Application | Planned |
+| 💳 Online Fee Management | Planned |
+| 📧 Email Notifications | Planned |
+| 📊 Advanced Analytics | Planned |
+| 📄 Automated Report Cards | Planned |
+| 🔔 Push Notifications | Planned |
+
+---
+
+# 🤝 Contribution
+
+Contributions are welcome.
+
+Steps:
+
+1. Fork this repository
+2. Create a new branch
+
+```bash
+git checkout -b feature-name
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push changes
+
+```bash
+git push origin feature-name
+```
+
+5. Open a Pull Request
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+You are free to use, modify and distribute this project with proper attribution.
+
+---
+
+# 👨‍💻 Developer
+
+## Ankit Nehra
+
+Full Stack Developer
+
+GitHub:
+
+```
+https://github.com/Ankit-nehra
+```
+
+LinkedIn:
+
+```
+<YOUR_LINKEDIN_PROFILE>
+```
+
+Portfolio:
+
+```
+<YOUR_PORTFOLIO_URL>
+```
+
+---
+
+<div align="center">
+
+## ⭐ Thank You For Visiting EduCore ERP
+
+A complete digital solution for modern educational institutions.
+
+</div>
