@@ -156,3 +156,226 @@ EduCore ERP provides four dedicated dashboards.
 - [License](#-license)
 
 ---
+# 🛠 Tech Stack
+
+EduCore ERP is built using modern full-stack technologies with a separate database architecture for website content and ERP operations.
+
+<table>
+
+<tr>
+
+<td width="33%">
+
+## 🎨 Frontend
+
+| Technology | Usage |
+|---|---|
+| ⚛️ React.js | User Interface |
+| 🔀 React Router | Navigation |
+| 📡 Axios | API Communication |
+| 🎨 CSS / Tailwind CSS | Styling |
+
+</td>
+
+<td width="33%">
+
+## ⚙ Backend
+
+| Technology | Usage |
+|---|---|
+| 🟢 Node.js | Server Runtime |
+| 🚂 Express.js | REST API |
+| 🔐 JWT | Authentication |
+| 📤 Multer | File Handling |
+| ☁️ Cloudinary | Image Storage |
+
+</td>
+
+<td width="33%">
+
+## 🗄 Database
+
+| Technology | Usage |
+|---|---|
+| 🍃 MongoDB | Website Data |
+| 🐘 PostgreSQL | ERP Data |
+| ⚡ Supabase | PostgreSQL Platform |
+| 📦 pg | PostgreSQL Client |
+
+</td>
+
+</tr>
+
+</table>
+
+
+---
+
+# 🏗 System Architecture
+
+EduCore ERP follows a modular full-stack architecture where website data and ERP data are managed separately.
+
+```mermaid
+flowchart TD
+
+USER[Users]
+
+USER --> WEBSITE[Dynamic School Website]
+
+USER --> ERP[ERP Dashboards]
+
+
+WEBSITE --> API[Express REST API]
+
+ERP --> API
+
+
+API --> MONGO[(MongoDB)]
+API --> POSTGRES[(PostgreSQL Supabase)]
+
+API --> CLOUDINARY[Cloudinary Storage]
+
+
+ERP --> STUDENT[Student Portal]
+
+ERP --> TEACHER[Teacher Portal]
+
+ERP --> ADMIN[Admin Portal]
+
+ERP --> PRINCIPAL[Principal Portal]
+```
+
+---
+
+# 🔄 System Workflow
+
+```mermaid
+flowchart LR
+
+A[User Login]
+
+A --> B{Role Authentication}
+
+
+B -->|Student| C[Student Dashboard]
+
+B -->|Teacher| D[Teacher Dashboard]
+
+B -->|Admin| E[Admin Dashboard]
+
+B -->|Principal| F[Principal Dashboard]
+
+
+C --> G[Attendance Results Notices]
+
+D --> H[Attendance Marks Syllabus]
+
+E --> I[Admissions Website Management]
+
+F --> J[School Analytics]
+```
+
+---
+
+# 🧩 Application Structure
+
+```
+EduCore ERP
+
+│
+├── 🌐 Public School Website
+│
+│   ├── Home Page
+│   ├── About School
+│   ├── Notices
+│   ├── Gallery
+│   ├── Achievements
+│   └── Contact
+│
+│
+└── 🏫 ERP Management System
+    │
+    ├── 👨‍🎓 Student Portal
+    │
+    ├── 👩‍🏫 Teacher Portal
+    │
+    ├── 👨‍💼 Admin Portal
+    │
+    └── 🎓 Principal Portal
+
+```
+
+---
+
+# 🌐 Website Module
+
+The public website represents the school's online presence.
+
+All website content is dynamically managed through the admin dashboard.
+
+## Website Features
+
+| Module | Description |
+|---|---|
+| 🏠 Home Page | School introduction and highlights |
+| 📰 Notice Management | Publish announcements |
+| 🖼 Gallery Management | Upload school images |
+| 🏆 Achievement Section | Showcase school achievements |
+| 🏫 School Information | Manage public details |
+| 📞 Contact Section | Display communication information |
+
+---
+
+# 👨‍💼 Website Content Management
+
+Administrators can manage website content without modifying source code.
+
+| Admin Action | Status |
+|---|---|
+| Upload Gallery Images | ✅ |
+| Create Notices | ✅ |
+| Add Achievements | ✅ |
+| Edit Content | ✅ |
+| Delete Content | ✅ |
+
+---
+
+# 🏫 ERP Overview
+
+The ERP system provides separate role-based dashboards where each user can access only the information and actions assigned to their responsibilities.
+
+| Role | Main Responsibilities |
+|---|---|
+| 👨‍🎓 Student | View academic information and personal records |
+| 👩‍🏫 Teacher | Manage assigned classes and academic activities |
+| 👨‍💼 Admin | Manage complete school operations |
+| 🎓 Principal | Monitor school performance |
+
+---
+
+# 📊 Core ERP Capabilities
+
+| Module | Features |
+|---|---|
+| 👥 User Management | Role-based access system |
+| 📚 Academic Management | Marks, syllabus, timetable |
+| 📅 Attendance | Daily and historical attendance |
+| 📝 Examination | Test, mid-term and final results |
+| 🔔 Communication | Teacher and admin notices |
+| 📈 Performance | Student analytics and reports |
+| 🏫 Administration | Admissions and assignments |
+
+---
+
+# ⭐ Key Advantages
+
+| Feature | Benefit |
+|---|---|
+| 🔐 Role-Based Access | Secure user-specific permissions |
+| 🗄 Dual Database Design | Separate website and ERP data handling |
+| ☁ Cloud Storage | Reliable image management |
+| 📊 Performance Tracking | Better academic monitoring |
+| 📱 Responsive Interface | Accessible across devices |
+| 🧩 Modular Architecture | Easy future expansion |
+
+---
