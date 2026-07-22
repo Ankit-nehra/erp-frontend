@@ -1,4 +1,4 @@
-# 🎓 EduCore ERP
+<img width="708" height="560" alt="image" src="https://github.com/user-attachments/assets/761083b2-01be-43d0-8651-5c7cc2790acd" /># 🎓 EduCore ERP
 
 <div align="center">
 
@@ -311,31 +311,59 @@ Unlike many traditional school management systems, EduCore ERP combines a **dyna
 
 # 📸 Screenshots
 
-> Replace the placeholders below with actual screenshots.
+Teacher-Dashboard
+<img src="./src/assets/teacher-dash.png" alt="EduCore ERP Banner" width="100%" />
+Teacher see student list 
+<img src="./src/assets/teacher-studentInfo.png" alt="EduCore ERP Banner" width="100%" />
+Teacher see student profile 
+<img src="./src/assets/teacher-studentInfo-2.png" alt="EduCore ERP Banner" width="100%" />
+teacher take attendace 
+<img src="./src/assets/teacher-attendance.png" alt="EduCore ERP Banner" width="100%" />
+teacher uplaod marks 
+<img src="./src/assets/teacher-mark-upload.png" alt="EduCore ERP Banner" width="100%" />
+teacher syllabus
+<img src="./src/assets/teacher-syllabus.png" alt="EduCore ERP Banner" width="100%" />
+teacher upload notices 
+<img src="./src/assets/techer-notice.png" alt="EduCore ERP Banner" width="100%" />
+teacher see timetable
+<img src="./src/assets/teacher-timetable.png" alt="EduCore ERP Banner" width="100%" />
 
-```
-📷 Landing Page
+student dashboard
+<img src="./src/assets/student-dash.png" alt="EduCore ERP Banner" width="100%" />
+student-attendance
+<img src="./src/assets/student-attendance.png" alt="EduCore ERP Banner" width="100%" />
+student-notices
+<img src="./src/assets/student-notice.png" alt="EduCore ERP Banner" width="100%" />
+student-syllabus
+<img src="./src/assets/student-syllabus.png" alt="EduCore ERP Banner" width="100%" />
+student-timetable
+<img src="./src/assets/student-timetable.png" alt="EduCore ERP Banner" width="100%" />
+student-result
+<img src="./src/assets/studetnt-result.png" alt="EduCore ERP Banner" width="100%" />
 
-📷 Student Dashboard
+principal see student list 
+<img src="./src/assets/principal-studentInfo.png" alt="EduCore ERP Banner" width="100%" />
+principal see student details 
+<img src="./src/assets/principal-studentInfo-2.png" alt="EduCore ERP Banner" width="100%" />
 
-📷 Teacher Dashboard
+admin dashbaord
+<img src="./src/assets/admin-dash.png" alt="EduCore ERP Banner" width="100%" />
+admin notice
+<img src="./src/assets/admin-notice.png" alt="EduCore ERP Banner" width="100%" />
+admin gallery
+<img src="./src/assets/admin-gallery.png" alt="EduCore ERP Banner" width="100%" />
+admin achivements
+<img src="./src/assets/admin-achievement.png" alt="EduCore ERP Banner" width="100%" />
+admin admission
+<img src="./src/assets/admin-admission.png" alt="EduCore ERP Banner" width="100%" />
+admin timetable
+<img src="./src/assets/admin-timetable.png" alt="EduCore ERP Banner" width="100%" />
+admin assign teacher to their class
+<img src="./src/assets/admim-assign-teacher.png" alt="EduCore ERP Banner" width="100%" />
+admin assign subject to classes
+<img src="./src/assets/admin-class-subject.png" alt="EduCore ERP Banner" width="100%" />
 
-📷 Admin Dashboard
 
-📷 Principal Dashboard
-
-📷 Attendance Module
-
-📷 Marks Module
-
-📷 Timetable Module
-
-📷 Gallery
-
-📷 Notices
-```
-
----
 
 ## ⏭️ Next Part
 
