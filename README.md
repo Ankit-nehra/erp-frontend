@@ -80,11 +80,12 @@
 
 | Role | Email | Password |
 |---|---|---|
-| Student | your-email | your-password |
-| Teacher | your-email | your-password |
+| Student | STU001 | 123456 |
+| Teacher | TCH005 | TCH005 |
 | Admin | your-email | your-password |
-| Principal | your-email | your-password |
+| Principal | P001 | P001 |
 
+note:- Here admin panel login credential not provided because any user can delete, update existing data of student, teacher, principal
 # 📖 Overview
 
 **EduCore ERP** is a complete **School Website + Enterprise Resource Planning (ERP)** system designed to digitize school operations and improve communication between students, teachers, administrators, and principals.
