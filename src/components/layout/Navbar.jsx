@@ -39,7 +39,7 @@ function Navbar() {
           />
 
           <h1 className="text-lg md:text-xl font-bold">
-            PRAKASH PUBLIC SCHOOL
+            School site + ERP
           </h1>
         </Link>
 
