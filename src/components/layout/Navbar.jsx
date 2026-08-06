@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import logo from "../../assets/images/school-building.png"
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
@@ -33,7 +33,7 @@ function Navbar() {
         {/* Logo */}
         <Link to="../../assets/images/school-building.png" className="flex items-center gap-3">
           <img
-            src="/school-building.png"
+            src={logo}
             alt="School Logo"
             className="h-10 w-10 object-contain"
           />
