@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import principalImage from "../../assets/images/principal.jpeg";
+import principalImage from "../../assets/images/photo.jpg";
 
 function PrincipalMessage() {
   return (
