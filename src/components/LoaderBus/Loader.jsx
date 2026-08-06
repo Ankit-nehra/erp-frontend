@@ -7,7 +7,7 @@ export default function Loader() {
       <div className={styles.busWrapper}>
         {/* Loading text on bus */}
         <div className={styles.busText}>
-          Prakash Public School
+          Presented by Ankit Nehra
         </div>
 
         <div className={styles.busImageWrapper}>
