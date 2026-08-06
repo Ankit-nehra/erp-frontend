@@ -33,7 +33,7 @@ function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="/school-logo.png"
+            src="/school-building.png"
             alt="Prakash Public School Logo"
             className="h-10 w-10 object-contain"
           />
