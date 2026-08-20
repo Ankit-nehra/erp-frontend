@@ -31,11 +31,11 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Logo */}
-        <Link to="../../assets/images/school-building.png" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img
             src={logo}
             alt="School Logo"
-            className="h-10 w-10 object-contain"
+            className="h-14 w-10 object-contain"
           />
 
           <h1 className="text-lg md:text-xl font-bold">
