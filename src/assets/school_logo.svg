@@ -1,0 +1,467 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="900"
+     height="700"
+     viewBox="0 0 900 700">
+
+  <defs>
+
+    <!-- Main wall -->
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="55%" stop-color="#E9EFF4"/>
+      <stop offset="100%" stop-color="#B8C8D5"/>
+    </linearGradient>
+
+    <!-- Side wall -->
+    <linearGradient id="sideWall" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#AEBEC9"/>
+      <stop offset="100%" stop-color="#718696"/>
+    </linearGradient>
+
+    <!-- Roof -->
+    <linearGradient id="roof" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#15436C"/>
+      <stop offset="55%" stop-color="#0A2D4C"/>
+      <stop offset="100%" stop-color="#061D34"/>
+    </linearGradient>
+
+    <!-- Glass -->
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#BDF3FF"/>
+      <stop offset="30%" stop-color="#50BBDD"/>
+      <stop offset="70%" stop-color="#176D96"/>
+      <stop offset="100%" stop-color="#073852"/>
+    </linearGradient>
+
+    <!-- Door -->
+    <linearGradient id="door" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#062B47"/>
+      <stop offset="50%" stop-color="#0D5574"/>
+      <stop offset="100%" stop-color="#031B2E"/>
+    </linearGradient>
+
+    <!-- Building shadow -->
+    <filter id="shadow"
+            x="-30%" y="-30%"
+            width="160%"
+            height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+
+  </defs>
+
+
+  <!-- ================================================= -->
+  <!-- SUBTLE BUILDING SHADOW -->
+  <!-- ================================================= -->
+
+  <ellipse cx="450"
+           cy="590"
+           rx="335"
+           ry="24"
+           fill="#18364A"
+           opacity=".18"
+           filter="url(#shadow)"/>
+
+
+  <!-- ================================================= -->
+  <!-- MAIN BUILDING -->
+  <!-- ================================================= -->
+
+  <path d="M170 265
+           L650 265
+           L650 550
+           L170 550 Z"
+        fill="url(#wall)"
+        stroke="#647A8A"
+        stroke-width="3"/>
+
+
+  <!-- RIGHT SIDE / DEPTH -->
+
+  <path d="M650 265
+           L755 315
+           L755 550
+           L650 550 Z"
+        fill="url(#sideWall)"
+        stroke="#536A7B"
+        stroke-width="3"/>
+
+
+  <!-- ================================================= -->
+  <!-- ROOF -->
+  <!-- ================================================= -->
+
+  <path d="M135 265
+           L395 105
+           L675 205
+           L650 265 Z"
+        fill="url(#roof)"
+        stroke="#061F37"
+        stroke-width="5"/>
+
+
+  <!-- Roof side -->
+
+  <path d="M675 205
+           L780 270
+           L755 315
+           L650 265 Z"
+        fill="#082640"
+        stroke="#061D34"
+        stroke-width="4"/>
+
+
+  <!-- Roof highlight -->
+
+  <path d="M160 255
+           L395 115
+           L655 207"
+        fill="none"
+        stroke="#547B98"
+        stroke-width="4"
+        opacity=".65"/>
+
+
+  <!-- ================================================= -->
+  <!-- SCHOOL NAME -->
+  <!-- ================================================= -->
+
+  <text x="405"
+        y="218"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21"
+        font-weight="700"
+        letter-spacing="1.1"
+        fill="#EAF5FC"
+        stroke="#061D34"
+        stroke-width="1.6"
+        paint-order="stroke">
+    SIKSHA SR. SEC. SCHOOL
+  </text>
+
+
+  <!-- ================================================= -->
+  <!-- TOP WINDOWS -->
+  <!-- ================================================= -->
+
+  <!-- Window 1 -->
+
+  <g>
+    <rect x="215"
+          y="285"
+          width="78"
+          height="75"
+          rx="4"
+          fill="url(#glass)"
+          stroke="#526B7B"
+          stroke-width="5"/>
+
+    <line x1="254"
+          y1="285"
+          x2="254"
+          y2="360"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+
+    <line x1="215"
+          y1="322.5"
+          x2="293"
+          y2="322.5"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+  </g>
+
+
+  <!-- Window 2 -->
+
+  <g>
+    <rect x="320"
+          y="285"
+          width="78"
+          height="75"
+          rx="4"
+          fill="url(#glass)"
+          stroke="#526B7B"
+          stroke-width="5"/>
+
+    <line x1="359"
+          y1="285"
+          x2="359"
+          y2="360"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+
+    <line x1="320"
+          y1="322.5"
+          x2="398"
+          y2="322.5"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+  </g>
+
+
+  <!-- Window 3 -->
+
+  <g>
+    <rect x="425"
+          y="285"
+          width="78"
+          height="75"
+          rx="4"
+          fill="url(#glass)"
+          stroke="#526B7B"
+          stroke-width="5"/>
+
+    <line x1="464"
+          y1="285"
+          x2="464"
+          y2="360"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+
+    <line x1="425"
+          y1="322.5"
+          x2="503"
+          y2="322.5"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+  </g>
+
+
+  <!-- Window 4 -->
+
+  <g>
+    <rect x="530"
+          y="285"
+          width="78"
+          height="75"
+          rx="4"
+          fill="url(#glass)"
+          stroke="#526B7B"
+          stroke-width="5"/>
+
+    <line x1="569"
+          y1="285"
+          x2="569"
+          y2="360"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+
+    <line x1="530"
+          y1="322.5"
+          x2="608"
+          y2="322.5"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+  </g>
+
+
+  <!-- ================================================= -->
+  <!-- LOWER WINDOWS -->
+  <!-- ================================================= -->
+
+  <g>
+
+    <rect x="215"
+          y="390"
+          width="90"
+          height="90"
+          rx="4"
+          fill="url(#glass)"
+          stroke="#536C7C"
+          stroke-width="5"/>
+
+    <line x1="260"
+          y1="390"
+          x2="260"
+          y2="480"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+
+    <line x1="215"
+          y1="435"
+          x2="305"
+          y2="435"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+
+  </g>
+
+
+  <g>
+
+    <rect x="515"
+          y="390"
+          width="90"
+          height="90"
+          rx="4"
+          fill="url(#glass)"
+          stroke="#536C7C"
+          stroke-width="5"/>
+
+    <line x1="560"
+          y1="390"
+          x2="560"
+          y2="480"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+
+    <line x1="515"
+          y1="435"
+          x2="605"
+          y2="435"
+          stroke="#DDF7FF"
+          stroke-width="4"/>
+
+  </g>
+
+
+  <!-- ================================================= -->
+  <!-- CENTRAL ENTRANCE -->
+  <!-- ================================================= -->
+
+  <rect x="335"
+        y="365"
+        width="180"
+        height="185"
+        rx="5"
+        fill="#D9E2E8"
+        stroke="#718697"
+        stroke-width="4"/>
+
+
+  <!-- Entrance canopy -->
+
+  <path d="M315 370
+           L425 325
+           L535 370
+           L525 390
+           L325 390 Z"
+        fill="url(#roof)"
+        stroke="#06233D"
+        stroke-width="4"/>
+
+
+  <!-- Canopy highlight -->
+
+  <path d="M335 372
+           L425 337
+           L515 372"
+        fill="none"
+        stroke="#4F7895"
+        stroke-width="3"
+        opacity=".7"/>
+
+
+  <!-- Entrance pillars -->
+
+  <rect x="335"
+        y="390"
+        width="25"
+        height="160"
+        fill="#F9FBFC"
+        stroke="#8999A6"
+        stroke-width="3"/>
+
+  <rect x="490"
+        y="390"
+        width="25"
+        height="160"
+        fill="#F9FBFC"
+        stroke="#8999A6"
+        stroke-width="3"/>
+
+
+  <!-- Main door -->
+
+  <rect x="370"
+        y="405"
+        width="120"
+        height="145"
+        rx="3"
+        fill="url(#door)"
+        stroke="#061F35"
+        stroke-width="4"/>
+
+
+  <!-- Door glass -->
+
+  <rect x="383"
+        y="418"
+        width="94"
+        height="55"
+        rx="2"
+        fill="url(#glass)"
+        opacity=".85"/>
+
+
+  <!-- Door center -->
+
+  <line x1="430"
+        y1="405"
+        x2="430"
+        y2="550"
+        stroke="#79B8D0"
+        stroke-width="3"/>
+
+
+  <!-- Door handles -->
+
+  <circle cx="420"
+          cy="490"
+          r="4"
+          fill="#E1EDF2"/>
+
+  <circle cx="440"
+          cy="490"
+          r="4"
+          fill="#E1EDF2"/>
+
+
+  <!-- ================================================= -->
+  <!-- STAIRS -->
+  <!-- ================================================= -->
+
+  <path d="M320 550
+           L530 550
+           L550 565
+           L300 565 Z"
+        fill="#D3DADF"/>
+
+  <path d="M305 565
+           L545 565
+           L565 580
+           L285 580 Z"
+        fill="#B7C3CB"/>
+
+  <path d="M290 580
+           L560 580
+           L580 595
+           L270 595 Z"
+        fill="#9DAAB4"/>
+
+
+  <!-- ================================================= -->
+  <!-- SMALL ARCHITECTURAL DETAILS -->
+  <!-- ================================================= -->
+
+  <!-- Roof edge -->
+
+  <path d="M135 265
+           L650 265"
+        stroke="#0A2842"
+        stroke-width="8"/>
+
+
+  <!-- Building base -->
+
+  <path d="M165 550
+           L655 550"
+        stroke="#5C7180"
+        stroke-width="7"/>
+
+
+</svg>
